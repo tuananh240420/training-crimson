@@ -1,6 +1,11 @@
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../auth/AuthContext';
+import './Login.scss';
+import LoginImage from './images/Login.png';
+import BackgroundImage from './images/Background.png';
+// import Button from '../../components/Button/Button';
+
 const Login = () => {
     const { setIsAuth } = useAuthContext();
     const navigate = useNavigate();
@@ -15,69 +20,75 @@ const Login = () => {
     };
 
     return (
-        <Form
-            name="basic"
-            labelCol={{
-                span: 8,
-            }}
-            wrapperCol={{
-                span: 16,
-            }}
-            initialValues={{
-                remember: true,
-            }}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            autoComplete="off"
-        >
-            <Form.Item
-                label="Username"
-                name="username"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input your username!',
-                    },
-                ]}
-            >
-                <Input />
-            </Form.Item>
+        <div className="background">
+            <img className="imageBackground" src={BackgroundImage} alt="backgournd" />
+            <div>
+                <Form
+                    color="background: rgba(255,255,255,1)"
+                    layout="vertical"
+                    name="basic"
+                    labelCol={{
+                        span: 8,
+                    }}
+                    wrapperCol={{
+                        span: 16,
+                    }}
+                    initialValues={{
+                        remember: true,
+                    }}
+                    onFinish={onFinish}
+                    onFinishFailed={onFinishFailed}
+                    autoComplete="off"
+                >
+                    <img className="LoginImage" src={LoginImage} alt="login" />
+                    <div className="formMail">
+                        <Form.Item
+                            className="labelEmail"
+                            label="Email/User login"
+                            name="Email"
+                            rules={[
+                                {
+                                    message: 'Please input your username!',
+                                },
+                            ]}
+                        >
+                            <Input className="inputEmail" />
+                        </Form.Item>
+                    </div>
 
-            <Form.Item
-                label="Password"
-                name="password"
-                rules={[
-                    {
-                        required: true,
-                        message: 'Please input your password!',
-                    },
-                ]}
-            >
-                <Input.Password />
-            </Form.Item>
+                    <div className="formPassword">
+                        <Form.Item
+                            className="labelPassword"
+                            label="Password"
+                            name="password"
+                            rules={[
+                                {
+                                    message: 'Please input your password!',
+                                },
+                            ]}
+                        >
+                            <Input.Password className="inputPassword" />
+                        </Form.Item>
+                    </div>
 
-            <Form.Item
-                name="remember"
-                valuePropName="checked"
-                wrapperCol={{
-                    offset: 8,
-                    span: 16,
-                }}
-            >
-                <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-
-            <Form.Item
-                wrapperCol={{
-                    offset: 8,
-                    span: 16,
-                }}
-            >
-                <Button type="primary" htmlType="submit">
-                    Submit
-                </Button>
-            </Form.Item>
-        </Form>
+                    <Form.Item
+                        wrapperCol={{
+                            offset: 8,
+                            span: 16,
+                        }}
+                    >
+                        <Button className="ButtonLogin" type="primary" htmlType="submit">
+                            Login
+                        </Button>
+                    </Form.Item>
+                    <Form.Item>
+                        <Button className="ButtonCreateAcc" type="link" htmlType="button">
+                            Create account
+                        </Button>
+                    </Form.Item>
+                </Form>
+            </div>
+        </div>
     );
 };
 

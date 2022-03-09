@@ -1,0 +1,131 @@
+Form {
+    height: 432px;
+    width: 528px;
+    left: 1149px;
+    top: 324px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+
+    position: absolute;
+    left: 59.84%;
+    right: 12.66%;
+    top: 30%;
+    bottom: 30%;
+
+    background: #ffffff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+div.background {
+    height: 1080px;
+    width: 1920px;
+    left: -4981px;
+    top: 4411px;
+    border-radius: 0px;
+    background: linear-gradient(97.56deg, #669ee9 3.96%, #37cde6 56.42%, #32dbdf 128.77%, #5cdacb 165.87%);
+}
+
+.imageBackground {
+    height: 465.824462890625px;
+    width: 777.0827026367188px;
+    left: 127px;
+    top: 342.17578125px;
+    border-radius: 0px;
+    position: absolute;
+    left: 6.61%;
+    right: 52.91%;
+    top: 31.68%;
+    bottom: 25.19%;
+}
+
+.LoginImage {
+    height: 28px;
+    width: 66px;
+    left: 1179px;
+    top: 378px;
+    border-radius: nullpx;
+    font-family: Helvetica;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 28px;
+    letter-spacing: 0px;
+    text-align: center;
+    margin-top: 66px;
+    margin-left: 28px;
+    margin-bottom: 40px;
+
+    // position: absolute;
+    // left: 61.41%;
+    // right: 35.16%;
+    // top: 35%;
+    // bottom: 62.41%;
+
+    font-family: Helvetica;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+    text-align: center;
+}
+
+.labelEmail {
+    font-family: Helvetica Neue;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.23999999463558197px;
+    text-align: left;
+    color: #1b242c;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+// .inputEmail {
+//     margin-left: 70px;
+// }
+
+// .ant-form-item-label {
+//     text-align: left;
+// }
+
+.labelPassword {
+    font-family: Helvetica Neue;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: -0.23999999463558197px;
+    text-align: left;
+    color: #1b242c;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    text-align: left;
+}
+
+// .inputPassword {
+//     margin-left: 70px;
+// }
+
+.ButtonLogin {
+    margin-left: 50px;
+}
+
+.ButtonCreateAcc {
+    margin-left: 200px;
+}
+
+.formMail {
+    margin-left: 28px;
+}
+
+.formPassword {
+    margin-left: 28px;
+}
