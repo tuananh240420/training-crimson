@@ -4,7 +4,6 @@ import { useAuthContext } from '../../auth/AuthContext';
 import './Login.scss';
 import LoginImage from '../../assets/img/Login.png';
 import BackgroundImage from '../../assets/img/Background.png';
-// import Button from '../../components/Button/Button';
 
 const Login = () => {
     const { setIsAuth } = useAuthContext();
@@ -23,21 +22,7 @@ const Login = () => {
         <div className="login-page">
             <img className="imageBackground" src={BackgroundImage} alt="backgournd" />
             <div className="login--component">
-                <Form
-                    // color="background: rgba(255,255,255,1)"
-                    layout="vertical"
-                    // name="basic"
-                    // labelCol={{
-                    //     span: 8,
-                    // }}
-
-                    // initialValues={{
-                    //     remember: true,
-                    // }}
-                    onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
-                    autoComplete="off"
-                >
+                <Form layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
                     <img className="LoginImage" src={LoginImage} alt="login" />
                     <div className="formMail">
                         <Form.Item
