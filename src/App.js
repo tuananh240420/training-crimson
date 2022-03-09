@@ -1,6 +1,5 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import 'antd/dist/antd.css';
-import Button from './components/Button/Button';
 import AuthProvider from './auth/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './router';

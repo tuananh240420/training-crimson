@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.scss';
 import { Button as AntdButton } from 'antd';
-const Button = ({ className, size, children }) => {
+const Button = ({ className, children, ...params }) => {
     return (
-        <AntdButton className={`btn ${className}`} type="primary" size={size}>
+        <AntdButton className={`btn ${className}`} {...params}>
             {children}
         </AntdButton>
     );

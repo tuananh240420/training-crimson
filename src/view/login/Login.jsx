@@ -1,6 +1,7 @@
-import { Form, Input, Button, Checkbox } from 'antd';
+import { Form, Input, Checkbox } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../auth/AuthContext';
+import Button from '../../components/Button/Button';
 const Login = () => {
     const { setIsAuth } = useAuthContext();
     const navigate = useNavigate();
@@ -73,7 +74,7 @@ const Login = () => {
                     span: 16,
                 }}
             >
-                <Button type="primary" htmlType="submit">
+                <Button type="primary" htmlType="submit" size="large">
                     Submit
                 </Button>
             </Form.Item>
