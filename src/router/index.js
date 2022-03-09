@@ -1,5 +1,6 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import Login from '../view/login/Login';
+import SignUp from '../view/SignUp/SignUp';
 import Dashboard from '../view/dashboard/Dashboard';
 import { useAuthContext } from '../auth/AuthContext';
 import Header from '../components/header/Header';
@@ -24,6 +25,10 @@ const Router = () => {
                 { path: 'user', element: <Dashboard /> },
                 { path: 'dumanagement', element: <Dashboard /> },
             ],
+        },
+        {
+            path: '/signup',
+            element: <SignUp />,
         },
     ]);
 };

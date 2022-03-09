@@ -1,8 +1,8 @@
-.login-page {
+.signup-page {
     height: 100vh;
     width: 100%;
     background: linear-gradient(97.56deg, #669ee9 3.96%, #37cde6 56.42%, #32dbdf 128.77%, #5cdacb 165.87%);
-    .imageBackground {
+    .image-background {
         height: 465.824462890625px;
         width: 777.0827026367188px;
         left: 127px;
@@ -14,11 +14,11 @@
         top: 31.68%;
         bottom: 25.19%;
     }
-    .LoginImage {
+    .SignupImage {
         margin-bottom: 42px;
     }
-    .login--component {
-        height: 432px;
+    .signup--component {
+        height: 656px;
         width: 528px;
         background: rgba(255, 255, 255, 1);
         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
@@ -31,17 +31,18 @@
         background: #ffffff;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
+        margin-top: -100px;
         .ant-input {
             height: 40px;
         }
-        .btn-submit {
+        .btn-submit-signup {
             .ant-form-item-control-input-content {
                 display: flex;
                 justify-content: center;
                 align-items: center;
             }
 
-            .btn-login {
+            .btn-signup {
                 width: 250px;
             }
         }
