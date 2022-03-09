@@ -2,8 +2,8 @@ import { Form, Input, Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from '../../auth/AuthContext';
 import './Login.scss';
-import LoginImage from './images/Login.png';
-import BackgroundImage from './images/Background.png';
+import LoginImage from '../../assets/img/Login.png';
+import BackgroundImage from '../../assets/img/Background.png';
 // import Button from '../../components/Button/Button';
 
 const Login = () => {
@@ -20,22 +20,20 @@ const Login = () => {
     };
 
     return (
-        <div className="background">
+        <div className="login-page">
             <img className="imageBackground" src={BackgroundImage} alt="backgournd" />
-            <div>
+            <div className="login--component">
                 <Form
-                    color="background: rgba(255,255,255,1)"
+                    // color="background: rgba(255,255,255,1)"
                     layout="vertical"
-                    name="basic"
-                    labelCol={{
-                        span: 8,
-                    }}
-                    wrapperCol={{
-                        span: 16,
-                    }}
-                    initialValues={{
-                        remember: true,
-                    }}
+                    // name="basic"
+                    // labelCol={{
+                    //     span: 8,
+                    // }}
+
+                    // initialValues={{
+                    //     remember: true,
+                    // }}
                     onFinish={onFinish}
                     onFinishFailed={onFinishFailed}
                     autoComplete="off"
@@ -52,7 +50,7 @@ const Login = () => {
                                 },
                             ]}
                         >
-                            <Input className="inputEmail" />
+                            <Input className="inputEmail" placeholder="Your email/ user" />
                         </Form.Item>
                     </div>
 
@@ -67,22 +65,17 @@ const Login = () => {
                                 },
                             ]}
                         >
-                            <Input.Password className="inputPassword" />
+                            <Input.Password className="inputPassword" placeholder="Enter your password" />
                         </Form.Item>
                     </div>
 
-                    <Form.Item
-                        wrapperCol={{
-                            offset: 8,
-                            span: 16,
-                        }}
-                    >
-                        <Button className="ButtonLogin" type="primary" htmlType="submit">
+                    <Form.Item className="btn-submit">
+                        <Button className="btn-login" type="primary" htmlType="submit">
                             Login
                         </Button>
                     </Form.Item>
                     <Form.Item>
-                        <Button className="ButtonCreateAcc" type="link" htmlType="button">
+                        <Button className="button-createAcc" type="link" htmlType="button">
                             Create account
                         </Button>
                     </Form.Item>

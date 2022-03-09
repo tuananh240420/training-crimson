@@ -1,0 +1,55 @@
+.signup-page {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(97.56deg, #669ee9 3.96%, #37cde6 56.42%, #32dbdf 128.77%, #5cdacb 165.87%);
+    .imageBackground {
+        height: 465.824462890625px;
+        width: 777.0827026367188px;
+        left: 127px;
+        top: 342.17578125px;
+        border-radius: 0px;
+        position: absolute;
+        left: 6.61%;
+        right: 52.91%;
+        top: 31.68%;
+        bottom: 25.19%;
+    }
+    .SignupImage {
+        margin-bottom: 42px;
+    }
+    .signup--component {
+        height: 656px;
+        width: 528px;
+        background: rgba(255, 255, 255, 1);
+        box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
+        padding: 54px 30px;
+        position: absolute;
+        left: 59.84%;
+        right: 12.66%;
+        top: 30%;
+        bottom: 30%;
+        background: #ffffff;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        margin-top: -100px;
+        .ant-input {
+            height: 40px;
+        }
+        .btn-submit-signup {
+            .ant-form-item-control-input-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .btn-signup {
+                width: 250px;
+            }
+        }
+        .ant-form-item-control-input-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
