@@ -1,0 +1,101 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 32px;
+
+    .ant-page-header {
+        padding: 0;
+        &-heading-extra {
+            margin: 0;
+            .header-btn {
+                border-radius: 0;
+                width: 160px;
+                font-size: 14px;
+                line-height: 16px;
+                border-color: transparent;
+                margin-left: 0;
+            }
+        }
+    }
+
+    &__user {
+        display: flex;
+        align-items: center;
+        .notification {
+            position: relative;
+            margin-right: 36px;
+            &__icon {
+                font-size: 22px;
+            }
+            &__counter {
+                width: 20px;
+                height: 20px;
+                background: #eb5757;
+                position: absolute;
+                left: 10px;
+                bottom: 3px;
+                font-weight: bold;
+                font-size: 11px;
+                line-height: 13px;
+                display: flex;
+                color: #fff;
+                justify-content: center;
+                align-items: center;
+                border-radius: 50%;
+            }
+        }
+        .user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            &__dropdown {
+                font-size: 14px;
+                line-height: 17px;
+                color: #485058;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                &-icon {
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}
+
+.ant-dropdown {
+    margin-top: 20px;
+    width: 235px;
+    height: 136px;
+    left: 0px;
+    top: 26px !important;
+
+    background: #ffffff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+
+    &-menu-item {
+        padding: 16px 22px 16px;
+        display: flex;
+        align-items: center;
+        &:not(:last-of-type) {
+            border-bottom: 1px solid #e0e0e0;
+        }
+        &:last-child {
+            color: #eb5757;
+        }
+        &:hover {
+            background-color: #ccc;
+        }
+    }
+    &-menu-title-content {
+        a {
+            display: flex;
+            gap: 26px;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
+}

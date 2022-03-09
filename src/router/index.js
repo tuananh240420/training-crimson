@@ -2,10 +2,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 import Login from '../view/login/Login';
 import Dashboard from '../view/dashboard/Dashboard';
 import { useAuthContext } from '../auth/AuthContext';
-
-const Div = () => {
-    return <div>Test</div>;
-};
+import Header from '../components/header/Header';
 
 const Router = ({ children }) => {
     const { isAuth } = useAuthContext();
@@ -15,16 +12,18 @@ const Router = ({ children }) => {
         {
             path: '/login',
             element: <Login />,
-            // children: [{ path: 'login', element: <Login /> }],
         },
-        {
-            path: '/dashboard',
-            element: isAuth ? <Dashboard /> : <Navigate to="/login" />,
-            children: [{ path: 'ade', element: <Div /> }],
-        },
+
         {
             path: '/',
-            element: isAuth ? <Navigate to="/dashboard" /> : <Navigate to="/login" />,
+            element: isAuth ? <Header /> : <Navigate to="/login" />,
+            children: [
+                { path: 'dashboard', element: <Dashboard /> },
+                { path: 'room', element: <Dashboard /> },
+                { path: 'report', element: <Dashboard /> },
+                { path: 'user', element: <Dashboard /> },
+                { path: 'du-managment', element: <Dashboard /> },
+            ],
         },
     ]);
 };
