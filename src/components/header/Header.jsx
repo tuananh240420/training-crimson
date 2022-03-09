@@ -6,9 +6,8 @@ import { BellOutlined, DownOutlined, UserOutlined, LockOutlined, LoginOutlined }
 import Logo from '../../assets/img/Logo.svg';
 import { Outlet } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
-
-const memuItems = ['Dashboard', 'Room', 'Report', 'User', 'DU Managment'];
-
+import { useTranslation } from 'react-i18next';
+import { memuItems } from '../../contants';
 const menu = (
     <Menu>
         <Menu.Item key="0">
@@ -34,9 +33,12 @@ const menu = (
 );
 
 const Header = () => {
+    const { t } = useTranslation();
     const location = useLocation();
     const navigate = useNavigate();
+
     console.log(memuItems[0].replace(' ', '-').toLocaleLowerCase());
+    // const { t } = useTranslation();
     return (
         <>
             <div className="header">
@@ -48,10 +50,10 @@ const Header = () => {
                             key={item}
                             className="header-btn"
                             size="large"
-                            type={location.pathname === `/${item.replace(' ', '-').toLocaleLowerCase()}` && 'primary'}
-                            onClick={() => navigate(item.replace(' ', '-').toLocaleLowerCase())}
+                            type={location.pathname === `/${item.toLocaleLowerCase()}` && 'primary'}
+                            onClick={() => navigate(item.toLocaleLowerCase())}
                         >
-                            {item}
+                            {t(item)}
                         </Button>
                     ))}
                 ></PageHeader>

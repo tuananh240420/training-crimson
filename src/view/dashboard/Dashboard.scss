@@ -1,0 +1,59 @@
+$primary-color: #669ee9;
+
+.dashboard {
+    flex: 1;
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    flex-direction: column;
+    &__title {
+        margin-top: 28px;
+        margin-bottom: 28px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+    &__content {
+        flex: 1;
+        padding: 20px 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        .content__header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            .time-btn-group {
+                .ant-btn {
+                    width: 132px;
+                }
+            }
+            .control-group {
+                position: absolute;
+                right: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 16px;
+
+                .ant-dropdown-link {
+                    padding: 0 15px;
+                    height: 100%;
+                }
+
+                .ant-btn {
+                    color: $primary-color;
+                    background: #fff;
+                    &:last-of-type {
+                        padding-left: 14px;
+                        padding-right: 14px;
+                        width: unset;
+                    }
+                }
+            }
+        }
+        .content__footer {
+            margin-top: auto;
+        }
+    }
+}
