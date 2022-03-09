@@ -1,12 +1,80 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Badge, Calendar } from 'antd';
+import './Dashboard.scss';
+import { useTranslation } from 'react-i18next';
+
 const Dashboard = () => {
-    const navigate = useNavigate();
+    const { t } = useTranslation();
     return (
-        <>
-            <button onClick={() => navigate('ade')}>To Ade</button>
-        </>
+        <div className="dashboard">
+            <h1 className="dashboard__title">{t('dashboard')}</h1>
+            <div className="dashboard__content">
+                <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
+            </div>
+        </div>
     );
 };
+
+// TODO: Add tạm calendar
+
+function getListData(value) {
+    let listData;
+    switch (value.date()) {
+        case 8:
+            listData = [
+                { type: 'warning', content: 'This is warning event.' },
+                { type: 'success', content: 'This is usual event.' },
+            ];
+            break;
+        case 10:
+            listData = [
+                { type: 'warning', content: 'This is warning event.' },
+                { type: 'success', content: 'This is usual event.' },
+                { type: 'error', content: 'This is error event.' },
+            ];
+            break;
+        case 15:
+            listData = [
+                { type: 'warning', content: 'This is warning event' },
+                { type: 'success', content: 'This is very long usual event。。....' },
+                { type: 'error', content: 'This is error event 1.' },
+                { type: 'error', content: 'This is error event 2.' },
+                { type: 'error', content: 'This is error event 3.' },
+                { type: 'error', content: 'This is error event 4.' },
+            ];
+            break;
+        default:
+    }
+    return listData || [];
+}
+
+function dateCellRender(value) {
+    const listData = getListData(value);
+    return (
+        <ul className="events">
+            {listData.map((item) => (
+                <li key={item.content}>
+                    <Badge status={item.type} text={item.content} />
+                </li>
+            ))}
+        </ul>
+    );
+}
+
+function getMonthData(value) {
+    if (value.month() === 8) {
+        return 1394;
+    }
+}
+
+function monthCellRender(value) {
+    const num = getMonthData(value);
+    return num ? (
+        <div className="notes-month">
+            <section>{num}</section>
+            <span>Backlog number</span>
+        </div>
+    ) : null;
+}
 
 export default Dashboard;

@@ -5,9 +5,8 @@ import Dashboard from '../view/dashboard/Dashboard';
 import { useAuthContext } from '../auth/AuthContext';
 import Header from '../components/header/Header';
 
-const Router = ({ children }) => {
+const Router = () => {
     const { isAuth } = useAuthContext();
-    console.log('contex', isAuth);
 
     return useRoutes([
         {
@@ -23,7 +22,7 @@ const Router = ({ children }) => {
                 { path: 'room', element: <Dashboard /> },
                 { path: 'report', element: <Dashboard /> },
                 { path: 'user', element: <Dashboard /> },
-                { path: 'du-managment', element: <Dashboard /> },
+                { path: 'dumanagement', element: <Dashboard /> },
             ],
         },
         {

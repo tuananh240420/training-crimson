@@ -3,9 +3,9 @@ import 'antd/dist/antd.css';
 import AuthProvider from './auth/AuthContext';
 import { BrowserRouter } from 'react-router-dom';
 import Router from './router';
+import './i18next';
+
 const App = () => {
-    // const { isAuth, setIsAuth } = useContext(AuthContext);
-    // console.log({ isAuth, setIsAuth });
     return (
         <BrowserRouter>
             <AuthProvider>
