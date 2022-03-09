@@ -9,9 +9,7 @@ const App = () => {
     return (
         <BrowserRouter>
             <AuthProvider>
-                <Router>
-                    <div></div>
-                </Router>
+                <Router></Router>
             </AuthProvider>
         </BrowserRouter>
     );
