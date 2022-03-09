@@ -21,24 +21,10 @@ const SignUp = () => {
 
     return (
         <div className="signup-page">
-            <img className="imageBackground" src={BackgroundImageSignUp} alt="backgournd-signup" />
+            <img className="image-background" src={BackgroundImageSignUp} alt="backgournd-signup" />
             <div className="signup--component">
-                <Form
-                    // color="background: rgba(255,255,255,1)"
-                    layout="vertical"
-                    // name="basic"
-                    // labelCol={{
-                    //     span: 8,
-                    // }}
-
-                    // initialValues={{
-                    //     remember: true,
-                    // }}
-                    onFinish={onFinish}
-                    onFinishFailed={onFinishFailed}
-                    autoComplete="off"
-                >
-                    <img className="LoginImage" src={SignupImage} alt="login" />
+                <Form layout="vertical" onFinish={onFinish} onFinishFailed={onFinishFailed} autoComplete="off">
+                    <img className="login-image" src={SignupImage} alt="login" />
                     <div className="form-name">
                         <Form.Item
                             className="label-name"
@@ -53,7 +39,7 @@ const SignUp = () => {
                             <Input className="input-name" placeholder="Enter your name" />
                         </Form.Item>
                     </div>
-                    <div className="formMail">
+                    <div className="form-mail">
                         <Form.Item
                             className="labelEmail"
                             label="Email/User login"
@@ -64,7 +50,7 @@ const SignUp = () => {
                                 },
                             ]}
                         >
-                            <Input className="inputEmail" placeholder="Your email/ user" />
+                            <Input className="input-mmail" placeholder="Your email/ user" />
                         </Form.Item>
                     </div>
 
@@ -79,13 +65,13 @@ const SignUp = () => {
                                 },
                             ]}
                         >
-                            <Input.Password className="inputPassword" placeholder="Enter your phone" />
+                            <Input.Password className="input-password" placeholder="Enter your phone" />
                         </Form.Item>
                     </div>
 
-                    <div className="formPassword">
+                    <div className="form-password">
                         <Form.Item
-                            className="labelPassword"
+                            className="label-password"
                             label="Password"
                             name="password"
                             rules={[
@@ -94,7 +80,7 @@ const SignUp = () => {
                                 },
                             ]}
                         >
-                            <Input.Password className="inputPassword" placeholder="Enter your password" />
+                            <Input.Password className="input-password" placeholder="Enter your password" />
                         </Form.Item>
                     </div>
 
