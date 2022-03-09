@@ -1,73 +1,80 @@
 import React from 'react';
-import Button from '../../components/Button/Button';
-import { PlusOutlined, ReloadOutlined, DownOutlined, UserOutlined, LockOutlined, LoginOutlined } from '@ant-design/icons';
-import { Dropdown, Menu } from 'antd';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { Badge, Calendar } from 'antd';
 import './Dashboard.scss';
-const menu = (
-    <Menu>
-        <Menu.Item key="0">
-            <a href="#">
-                <UserOutlined />
-                <span className="memnu-item-title-desc">Profile</span>
-            </a>
-        </Menu.Item>
-
-        <Menu.Item key="1">
-            <a href="#">
-                <LockOutlined />
-                <span className="memnu-item-title-desc">Change Password</span>
-            </a>
-        </Menu.Item>
-        <Menu.Item key="3">
-            <a href="#">
-                <LoginOutlined />
-                <span className="memnu-item-title-desc">Logout</span>
-            </a>
-        </Menu.Item>
-    </Menu>
-);
-
-function useQuery() {
-    const { search } = useLocation();
-
-    return React.useMemo(() => new URLSearchParams(search), [search]);
-}
-
-const times = ['Date', 'Month', 'Year'];
+import { useTranslation } from 'react-i18next';
 
 const Dashboard = () => {
-    const query = useQuery();
-    console.log(query.get('time'));
-    const navigate = useNavigate();
+    const { t } = useTranslation();
     return (
         <div className="dashboard">
-            <h1 className="dashboard__title">Dashboard</h1>
+            <h1 className="dashboard__title">{t('dashboard')}</h1>
             <div className="dashboard__content">
-                <header className="content__header">
-                    <div className="time-btn-group">
-                        {times.map((time) => (
-                            <Button key={time} onClick={() => navigate(`?time=${time}`)} type={query.get('time') === time && 'primary'}>
-                                {time}
-                            </Button>
-                        ))}
-                    </div>
-                    <div className="control-group">
-                        <Button type="default" icon={<PlusOutlined />}>
-                            Create
-                        </Button>
-                        <Dropdown className="dashboard__dropdown" overlay={menu} trigger={['click']} placement="bottomLeft">
-                            <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
-                                Sai gon <DownOutlined className="" />
-                            </a>
-                        </Dropdown>
-                        <Button shape="circle" icon={<ReloadOutlined />}></Button>
-                    </div>
-                </header>
-                <footer className="content__footer">Total: 120 item</footer>
+                <Calendar dateCellRender={dateCellRender} monthCellRender={monthCellRender} />
             </div>
         </div>
     );
 };
+
+// TODO: Add tạm calendar
+
+function getListData(value) {
+    let listData;
+    switch (value.date()) {
+        case 8:
+            listData = [
+                { type: 'warning', content: 'This is warning event.' },
+                { type: 'success', content: 'This is usual event.' },
+            ];
+            break;
+        case 10:
+            listData = [
+                { type: 'warning', content: 'This is warning event.' },
+                { type: 'success', content: 'This is usual event.' },
+                { type: 'error', content: 'This is error event.' },
+            ];
+            break;
+        case 15:
+            listData = [
+                { type: 'warning', content: 'This is warning event' },
+                { type: 'success', content: 'This is very long usual event。。....' },
+                { type: 'error', content: 'This is error event 1.' },
+                { type: 'error', content: 'This is error event 2.' },
+                { type: 'error', content: 'This is error event 3.' },
+                { type: 'error', content: 'This is error event 4.' },
+            ];
+            break;
+        default:
+    }
+    return listData || [];
+}
+
+function dateCellRender(value) {
+    const listData = getListData(value);
+    return (
+        <ul className="events">
+            {listData.map((item) => (
+                <li key={item.content}>
+                    <Badge status={item.type} text={item.content} />
+                </li>
+            ))}
+        </ul>
+    );
+}
+
+function getMonthData(value) {
+    if (value.month() === 8) {
+        return 1394;
+    }
+}
+
+function monthCellRender(value) {
+    const num = getMonthData(value);
+    return num ? (
+        <div className="notes-month">
+            <section>{num}</section>
+            <span>Backlog number</span>
+        </div>
+    ) : null;
+}
 
 export default Dashboard;

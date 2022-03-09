@@ -7,45 +7,22 @@ import Logo from '../../assets/img/Logo.svg';
 import { Outlet } from 'react-router-dom';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { memuItems } from '../../contants';
-const menu = (
-    <Menu>
-        <Menu.Item key="0">
-            <a href="#">
-                <UserOutlined />
-                <span className="memnu-item-title-desc">Profile</span>
-            </a>
-        </Menu.Item>
-
-        <Menu.Item key="1">
-            <a href="#">
-                <LockOutlined />
-                <span className="memnu-item-title-desc">Change Password</span>
-            </a>
-        </Menu.Item>
-        <Menu.Item key="3">
-            <a href="#">
-                <LoginOutlined />
-                <span className="memnu-item-title-desc">Logout</span>
-            </a>
-        </Menu.Item>
-    </Menu>
-);
+import { MENU_ITEMS } from '../../contants';
+import { useAuthContext } from '../../auth/AuthContext';
 
 const Header = () => {
     const { t } = useTranslation();
+    const { setIsAuth } = useAuthContext();
     const location = useLocation();
     const navigate = useNavigate();
 
-    console.log(memuItems[0].replace(' ', '-').toLocaleLowerCase());
-    // const { t } = useTranslation();
     return (
         <>
             <div className="header">
                 <img className="header__logo" src={Logo} alt="Logo" />
                 <PageHeader
                     ghost={false}
-                    extra={memuItems.map((item) => (
+                    extra={MENU_ITEMS.map((item) => (
                         <Button
                             key={item}
                             className="header-btn"
@@ -64,7 +41,34 @@ const Header = () => {
                     </div>
                     <div className="user">
                         <Avatar className="user__avatar" />
-                        <Dropdown className="user__dropdown" overlay={menu} trigger={['click']} placement="bottomRight">
+                        <Dropdown
+                            className="user__dropdown"
+                            overlay={
+                                <Menu>
+                                    <Menu.Item key="0">
+                                        <p>
+                                            <UserOutlined />
+                                            <span className="memnu-item-title-desc">{t('profile')}</span>
+                                        </p>
+                                    </Menu.Item>
+
+                                    <Menu.Item key="1">
+                                        <p>
+                                            <LockOutlined />
+                                            <span className="memnu-item-title-desc">{t('changePassword')}</span>
+                                        </p>
+                                    </Menu.Item>
+                                    <Menu.Item key="3" onClick={() => setIsAuth(false)}>
+                                        <p>
+                                            <LoginOutlined />
+                                            <span className="memnu-item-title-desc">{t('logout')}</span>
+                                        </p>
+                                    </Menu.Item>
+                                </Menu>
+                            }
+                            trigger={['click']}
+                            placement="bottomRight"
+                        >
                             <a className="ant-dropdown-link" onClick={(e) => e.preventDefault()}>
                                 Tien Dat <DownOutlined className="user__dropdown-icon" />
                             </a>

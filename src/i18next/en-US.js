@@ -8,5 +8,9 @@ export const en = {
         date: 'Date',
         month: 'Month',
         year: 'Year',
+        create: 'Create',
+        profile: 'Profile',
+        changePassword: 'Change Password',
+        logout: 'Logout',
     },
 };

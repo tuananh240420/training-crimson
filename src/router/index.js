@@ -7,7 +7,6 @@ import Header from '../components/header/Header';
 
 const Router = () => {
     const { isAuth } = useAuthContext();
-    console.log('contex', isAuth);
 
     return useRoutes([
         {
