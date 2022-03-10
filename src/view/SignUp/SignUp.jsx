@@ -4,7 +4,8 @@ import { useAuthContext } from '../../auth/AuthContext';
 import './SignUp.scss';
 import SignupImage from '../../assets/img/SignUp.png';
 import BackgroundImageSignUp from '../../assets/img/Background.png';
-// import Button from '../../components/Button/Button';
+import Checkvalidate from '../../components/Checkvalidate/Checkvalidate';
+import { useState, useEffect } from 'react';
 
 const SignUp = () => {
     const { setIsAuth } = useAuthContext();
@@ -14,10 +15,34 @@ const SignUp = () => {
         setIsAuth(true);
         navigate('/dashboard');
     };
+    const [showPasswordCheck, setShowPasswordCheck] = useState(false);
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+    const [length, setLength] = useState(false);
+    const [lower, setLower] = useState(false);
+    const [upper, setUpper] = useState(false);
+    const [number, setNumber] = useState(false);
+    const [special, setSpecial] = useState(false);
+
+    const handleChangePassword = (e) => {
+        const value = e.target.value;
+        value.length >= 8 ? setLength(true) : setLength(false);
+        const lowerRegex = new RegExp(/[a-z]/);
+        lowerRegex.test(value) ? setLower(true) : setLower(false);
+        const upperRegex = new RegExp(/[A-Z]/);
+        upperRegex.test(value) ? setUpper(true) : setUpper(false);
+        const numberRegex = new RegExp(/[0-9]/g);
+        numberRegex.test(value) ? setNumber(true) : setNumber(false);
+        const specialRegex = new RegExp(/[@$!%*#?&]/);
+        specialRegex.test(value) ? setSpecial(true) : setSpecial(false);
+    };
+
+    useEffect(() => {
+        length && number && lower && upper && special && setShowPasswordCheck(false);
+    }, [length, number, lower, upper, special]);
 
     return (
         <div className="signup-page">
@@ -61,7 +86,7 @@ const SignUp = () => {
                             name="phone"
                             rules={[
                                 {
-                                    message: 'Please input your password!',
+                                    message: 'Please input your phone number!',
                                 },
                             ]}
                         >
@@ -80,7 +105,13 @@ const SignUp = () => {
                                 },
                             ]}
                         >
-                            <Input.Password className="input-password" placeholder="Enter your password" />
+                            <Input.Password
+                                className="input-password"
+                                placeholder="Enter your password"
+                                onChange={handleChangePassword}
+                                onFocus={() => setShowPasswordCheck(true)}
+                            />
+                            {showPasswordCheck && <Checkvalidate length={length} lower={lower} upper={upper} number={number} special={special} />}
                         </Form.Item>
                     </div>
 
@@ -91,7 +122,7 @@ const SignUp = () => {
                             name="confirmPassword"
                             rules={[
                                 {
-                                    message: 'Please input your password!',
+                                    message: 'Please confirm your password!',
                                 },
                             ]}
                         >
