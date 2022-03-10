@@ -2,6 +2,8 @@
     height: 100vh;
     width: 100%;
     background: linear-gradient(97.56deg, #669ee9 3.96%, #37cde6 56.42%, #32dbdf 128.77%, #5cdacb 165.87%);
+    display: flex;
+    align-items: center;
     .image-background {
         height: 465.824462890625px;
         width: 777.0827026367188px;
@@ -14,11 +16,10 @@
         top: 31.68%;
         bottom: 25.19%;
     }
-    .SignupImage {
+    .signup-img {
         margin-bottom: 42px;
     }
     .signup--component {
-        height: 656px;
         width: 528px;
         background: rgba(255, 255, 255, 1);
         box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.1);
@@ -26,8 +27,6 @@
         position: absolute;
         left: 59.84%;
         right: 12.66%;
-        top: 30%;
-        bottom: 30%;
         background: #ffffff;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
@@ -57,5 +56,8 @@
                 bottom: -120px;
             }
         }
+    }
+    .ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+        display: none;
     }
 }

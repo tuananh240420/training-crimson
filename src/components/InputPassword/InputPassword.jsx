@@ -2,10 +2,9 @@ import React, { useState } from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Form, Input, Popover } from 'antd';
 
-import './Checkvalidate.scss';
-import PropTypes from 'prop-types';
+import './InputPassword.scss';
 
-const Checkvalidate = () => {
+const InputPassword = () => {
     const [validator, setValidator] = useState({
         length: false,
         lower: false,
@@ -29,20 +28,7 @@ const Checkvalidate = () => {
     };
 
     return (
-        <Form.Item
-            className="label-password"
-            label="Password"
-            name="password"
-            rules={[
-                {
-                    validator: () => {
-                        console.log(Object.values(validator).find((item) => !item));
-                        if (Object.values(validator).find((item) => !item)) return Promise.reject(new Error('Pls  check input password'));
-                        else return Promise.resolve();
-                    },
-                },
-            ]}
-        >
+        <>
             <Popover
                 placement="right"
                 content={
@@ -70,18 +56,25 @@ const Checkvalidate = () => {
                 }
                 trigger="focus"
             >
-                <Input.Password className="input-password" placeholder="Enter your password" onChange={handleChangePassword} />
+                <Form.Item
+                    className="label-password"
+                    label="Password"
+                    name="password"
+                    hasFeedback
+                    rules={[
+                        {
+                            validator: () => {
+                                if (Object.values(validator).filter((item) => item === true).length !== 5) return Promise.reject(new Error('Your password is invalid'));
+                                else return Promise.resolve();
+                            },
+                        },
+                    ]}
+                >
+                    <Input.Password className="input-password" placeholder="Enter your password" onChange={handleChangePassword} />
+                </Form.Item>
             </Popover>
-        </Form.Item>
+        </>
     );
 };
 
-Checkvalidate.propTypes = {
-    length: PropTypes.bool,
-    lower: PropTypes.bool,
-    number: PropTypes.bool,
-    upper: PropTypes.bool,
-    special: PropTypes.bool,
-};
-
-export default Checkvalidate;
+export default InputPassword;
