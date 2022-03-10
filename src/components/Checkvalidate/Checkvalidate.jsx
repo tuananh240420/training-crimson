@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Form, Input, Popover } from 'antd';
 
@@ -6,8 +6,6 @@ import './Checkvalidate.scss';
 import PropTypes from 'prop-types';
 
 const Checkvalidate = () => {
-    const [showPasswordCheck, setShowPasswordCheck] = useState(false);
-
     const [validator, setValidator] = useState({
         length: false,
         lower: false,
@@ -72,7 +70,7 @@ const Checkvalidate = () => {
                 }
                 trigger="focus"
             >
-                <Input.Password className="input-password" placeholder="Enter your password" onChange={handleChangePassword} onFocus={() => setShowPasswordCheck(true)} />
+                <Input.Password className="input-password" placeholder="Enter your password" onChange={handleChangePassword} />
             </Popover>
         </Form.Item>
     );
