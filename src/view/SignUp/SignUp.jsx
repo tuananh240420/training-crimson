@@ -5,7 +5,6 @@ import './SignUp.scss';
 import SignupImage from '../../assets/img/SignUp.png';
 import BackgroundImageSignUp from '../../assets/img/Background.png';
 import Checkvalidate from '../../components/Checkvalidate/Checkvalidate';
-import { useState, useEffect } from 'react';
 
 const SignUp = () => {
     const { setIsAuth } = useAuthContext();
@@ -15,34 +14,10 @@ const SignUp = () => {
         setIsAuth(true);
         navigate('/dashboard');
     };
-    const [showPasswordCheck, setShowPasswordCheck] = useState(false);
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
-
-    const [length, setLength] = useState(false);
-    const [lower, setLower] = useState(false);
-    const [upper, setUpper] = useState(false);
-    const [number, setNumber] = useState(false);
-    const [special, setSpecial] = useState(false);
-
-    const handleChangePassword = (e) => {
-        const value = e.target.value;
-        value.length >= 8 ? setLength(true) : setLength(false);
-        const lowerRegex = new RegExp(/[a-z]/);
-        lowerRegex.test(value) ? setLower(true) : setLower(false);
-        const upperRegex = new RegExp(/[A-Z]/);
-        upperRegex.test(value) ? setUpper(true) : setUpper(false);
-        const numberRegex = new RegExp(/[0-9]/g);
-        numberRegex.test(value) ? setNumber(true) : setNumber(false);
-        const specialRegex = new RegExp(/[@$!%*#?&]/);
-        specialRegex.test(value) ? setSpecial(true) : setSpecial(false);
-    };
-
-    useEffect(() => {
-        length && number && lower && upper && special && setShowPasswordCheck(false);
-    }, [length, number, lower, upper, special]);
 
     return (
         <div className="signup-page">
@@ -95,24 +70,7 @@ const SignUp = () => {
                     </div>
 
                     <div className="form-password">
-                        <Form.Item
-                            className="label-password"
-                            label="Password"
-                            name="password"
-                            rules={[
-                                {
-                                    message: 'Please input your password!',
-                                },
-                            ]}
-                        >
-                            <Input.Password
-                                className="input-password"
-                                placeholder="Enter your password"
-                                onChange={handleChangePassword}
-                                onFocus={() => setShowPasswordCheck(true)}
-                            />
-                            {showPasswordCheck && <Checkvalidate length={length} lower={lower} upper={upper} number={number} special={special} />}
-                        </Form.Item>
+                        <Checkvalidate />
                     </div>
 
                     <div className="form-confirm-password">
@@ -121,9 +79,14 @@ const SignUp = () => {
                             label="Confirm Password"
                             name="confirmPassword"
                             rules={[
-                                {
-                                    message: 'Please confirm your password!',
-                                },
+                                ({ getFieldValue }) => ({
+                                    validator(_, value) {
+                                        if (!value || getFieldValue('password') === value) {
+                                            return Promise.resolve();
+                                        }
+                                        return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                                    },
+                                }),
                             ]}
                         >
                             <Input.Password className="inputPassword" placeholder="Enter your password" />

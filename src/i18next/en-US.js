@@ -12,5 +12,6 @@ export const en = {
         profile: 'Profile',
         changePassword: 'Change Password',
         logout: 'Logout',
+        listRoom: 'List Room',
     },
 };

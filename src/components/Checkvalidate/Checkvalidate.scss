@@ -1,27 +1,25 @@
-.check{
-    width:210px;
+.check {
+    width: 210px;
     padding: 16px;
     border-radius: 10px;
     box-shadow: 0 0 4px rgba(0 0 0/ 10%);
     background-color: #fff;
-    ul {
-        padding: 0;
+
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .check-item {
+        list-style: none;
         list-style-type: none;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-        .check-item {
-            list-style: none;
-            list-style-type: none;
-            .success {
-                color: green;
-                margin-right: 8px;
-            }
-            .danger {
-                color: red;
-                margin-right: 8px;
-            }
+        .success {
+            color: green;
+            margin-right: 8px;
+        }
+        .danger {
+            color: red;
+            margin-right: 8px;
         }
     }
-        
 }
