@@ -1,9 +1,9 @@
 import { Navigate, useRoutes } from 'react-router-dom';
-import Login from '../view/login/Login';
+import Login from '../view/Login/Login';
 import SignUp from '../view/SignUp/SignUp';
-import Dashboard from '../view/dashboard/Dashboard';
+import Dashboard from '../view/Dashboard/Dashboard';
 import { useAuthContext } from '../auth/AuthContext';
-import Header from '../components/header/Header';
+import Header from '../components/Header/Header';
 
 const Router = () => {
     const { isAuth } = useAuthContext();
