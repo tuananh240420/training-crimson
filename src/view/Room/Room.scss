@@ -1,0 +1,66 @@
+.room {
+    background-color: #faf8f8;
+    .page-content {
+        background: #ffffff;
+        box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.16);
+        border-radius: 4px;
+        padding-right: 24px;
+        padding-left: 24px;
+        display: flex;
+        .content-header {
+            display: flex;
+            .search-bar {
+                width: 294px;
+                .anticon-search {
+                    color: #669ee9;
+                    font-size: 18px;
+                }
+            }
+            .control-btn {
+                margin-left: auto;
+                display: flex;
+                gap: 16px;
+                button:last-child {
+                    padding-right: 14px;
+                    padding-left: 14px;
+                    width: unset;
+                }
+            }
+        }
+        .content-main {
+            flex: 1;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+
+            .ant-table-wrapper {
+                flex: 1;
+                display: flex;
+                .ant-spin-nested-loading {
+                    flex: 1;
+                    display: flex;
+                }
+                .ant-spin-container {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+
+                    .ant-table {
+                        flex: 1;
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .ant-pagination {
+                        margin-top: auto;
+                    }
+                }
+            }
+        }
+    }
+    .text-danger {
+        color: #eb5757;
+    }
+    .text-warning {
+        color: #f2994a;
+    }
+}

@@ -12,5 +12,19 @@ export const en = {
         profile: 'Profile',
         changePassword: 'Change Password',
         logout: 'Logout',
+
+        // General
+        addNew: 'Add New',
+        search: 'Search',
+
+        // Room page
+        roomlist: 'List Room',
+        roomName: 'Name',
+        status: 'Status',
+        location: 'Location',
+        actions: 'Actions',
+        capacity: 'Capacity',
+        delete: 'Delete',
+        edit: 'Edit',
     },
 };

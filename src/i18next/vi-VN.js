@@ -12,5 +12,18 @@ export const vi = {
         profile: 'Hồ Sơ',
         changePassword: 'Đổi mật khẩu',
         logout: 'Đăng xuất',
+        // General
+        addNew: 'Thêm Mới',
+        search: 'Tìm Kiếm',
+
+        // Room page
+        roomlist: 'Danh Sách Phòng',
+        roomName: 'Tên Phòng',
+        status: 'Trạng Thái',
+        location: 'Địa Chỉ',
+        actions: 'Hành Động',
+        capacity: 'Số ghế',
+        delete: 'Xoá',
+        edit: 'Sửa',
     },
 };
