@@ -4,8 +4,11 @@ import { useAuthContext } from '../../auth/AuthContext';
 import './Login.scss';
 import LoginImage from '../../assets/img/Login.png';
 import BackgroundImage from '../../assets/img/Background.png';
+import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
+    const { t } = useTranslation();
     const { setIsAuth } = useAuthContext();
     const navigate = useNavigate();
     const onFinish = (values) => {
@@ -27,42 +30,44 @@ const Login = () => {
                     <div className="formMail">
                         <Form.Item
                             className="labelEmail"
-                            label="Email/User login"
+                            label="Email"
                             name="Email"
                             rules={[
                                 {
-                                    message: 'Please input your username!',
+                                    required: true,
+                                    message: t('emailMessage'),
                                 },
                             ]}
                         >
-                            <Input className="inputEmail" placeholder="Your email/ user" />
+                            <Input className="inputEmail" placeholder={t('emailPlaceholder')} />
                         </Form.Item>
                     </div>
 
                     <div className="formPassword">
                         <Form.Item
                             className="labelPassword"
-                            label="Password"
+                            label={t('password')}
                             name="password"
                             rules={[
                                 {
-                                    message: 'Please input your password!',
+                                    required: true,
+                                    message: t('passwordMessage'),
                                 },
                             ]}
                         >
-                            <Input.Password className="inputPassword" placeholder="Enter your password" />
+                            <Input.Password className="inputPassword" placeholder={t('passwordPlaceholder')} />
                         </Form.Item>
                     </div>
 
                     <Form.Item className="btn-submit">
                         <Button className="btn-login" type="primary" htmlType="submit">
-                            Login
+                            {t('login')}
                         </Button>
                     </Form.Item>
                     <Form.Item>
-                        <Button className="button-createAcc" type="link" htmlType="button">
-                            Create account
-                        </Button>
+                        <Link className="button-createAcc" to="/signup">
+                            {t('createaccount')}
+                        </Link>
                     </Form.Item>
                 </Form>
             </div>

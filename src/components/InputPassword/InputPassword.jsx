@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { CheckCircleOutlined, CloseCircleOutlined } from '@ant-design/icons';
 import { Form, Input, Popover } from 'antd';
+import { useTranslation } from 'react-i18next';
 
 import './InputPassword.scss';
 
 const InputPassword = () => {
+    const { t } = useTranslation();
     const [validator, setValidator] = useState({
         length: false,
         lower: false,
@@ -34,23 +36,24 @@ const InputPassword = () => {
                 content={
                     <ul className="check">
                         <li className="check-item">
-                            {validator.length ? <CheckCircleOutlined className="success" /> : <CloseCircleOutlined className="danger" />}8 characters in length
+                            {validator.length ? <CheckCircleOutlined className="success" /> : <CloseCircleOutlined className="danger" />}
+                            {t('passwordLengthMessage')}
                         </li>
                         <li className="check-item">
                             {validator.lower ? <CheckCircleOutlined className="success" /> : <CloseCircleOutlined className="danger" />}
-                            Lower case letter
+                            {t('passwordLowerMessage')}
                         </li>
                         <li className="check-item">
                             {validator.upper ? <CheckCircleOutlined className="success" /> : <CloseCircleOutlined className="danger" />}
-                            Upper case letter
+                            {t('passwordUpperMessage')}
                         </li>
                         <li className="check-item">
                             {validator.number ? <CheckCircleOutlined className="success" /> : <CloseCircleOutlined className="danger" />}
-                            Numberic character
+                            {t('passwordNumbericMessage')}
                         </li>
                         <li className="check-item">
                             {validator.special ? <CheckCircleOutlined className="success" /> : <CloseCircleOutlined className="danger" />}
-                            Specicial character
+                            {t('passwordSpecialMessage')}
                         </li>
                     </ul>
                 }
@@ -58,19 +61,19 @@ const InputPassword = () => {
             >
                 <Form.Item
                     className="label-password"
-                    label="Password"
+                    label={t('password')}
                     name="password"
                     hasFeedback
                     rules={[
                         {
                             validator: () => {
-                                if (Object.values(validator).filter((item) => item === true).length !== 5) return Promise.reject(new Error('Your password is invalid'));
+                                if (Object.values(validator).filter((item) => item === true).length !== 5) return Promise.reject(new Error(t('passwordMessage')));
                                 else return Promise.resolve();
                             },
                         },
                     ]}
                 >
-                    <Input.Password className="input-password" placeholder="Enter your password" onChange={handleChangePassword} />
+                    <Input.Password className="input-password" placeholder={t('passwordPlaceholder')} onChange={handleChangePassword} />
                 </Form.Item>
             </Popover>
         </>

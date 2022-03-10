@@ -5,8 +5,10 @@ import './SignUp.scss';
 import SignupImage from '../../assets/img/SignUp.png';
 import BackgroundImageSignUp from '../../assets/img/Background.png';
 import InputPassword from '../../components/InputPassword/InputPassword';
+import { useTranslation } from 'react-i18next';
 
 const SignUp = () => {
+    const { t } = useTranslation();
     const { setIsAuth } = useAuthContext();
     const navigate = useNavigate();
     const onFinish = (values) => {
@@ -28,51 +30,51 @@ const SignUp = () => {
                     <div className="form-name">
                         <Form.Item
                             className="label-name"
-                            label="Name"
-                            name="Name"
+                            label={t('name')}
+                            name="name"
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Please input your Fullname!',
+                                    message: t('nameMessage'),
                                 },
                             ]}
                         >
-                            <Input className="input-name" placeholder="Enter your name" />
+                            <Input className="input-name" placeholder={t('namePlaceholder')} />
                         </Form.Item>
                     </div>
                     <div className="form-mail">
                         <Form.Item
                             className="labelEmail"
-                            label="Email/User login"
+                            label="Email"
                             name="Email"
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Please input valid username/email address',
+                                    message: t('emailMessage'),
                                 },
                             ]}
                         >
-                            <Input className="input-mmail" placeholder="Your email/ user" />
+                            <Input className="input-mmail" placeholder={t('emailPlaceholder')} />
                         </Form.Item>
                     </div>
 
                     <div className="form-phone">
                         <Form.Item
                             className="label-phone"
-                            label="Phone"
+                            label={t('phone')}
                             name="phone"
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Please input your phone number',
+                                    message: t('phoneMessage'),
                                 },
                                 {
                                     pattern: /\(?([0-9]{3})\)?([ .-]?)([0-9]{3})\2([0-9]{4})/,
-                                    message: 'Please input valid phone number',
+                                    message: t('phoneMessage'),
                                 },
                             ]}
                         >
-                            <Input className="input-phone" placeholder="Enter your phone" />
+                            <Input className="input-phone" placeholder={t('phonePlaceholder')} />
                         </Form.Item>
                     </div>
 
@@ -83,13 +85,13 @@ const SignUp = () => {
                     <div className="form-confirm-password">
                         <Form.Item
                             className="label-confiem-password"
-                            label="Confirm Password"
+                            label={t('confirmPassword')}
                             name="confirmPassword"
                             hasFeedback
                             rules={[
                                 {
                                     required: true,
-                                    message: 'Please confirm your password',
+                                    message: t('confirmPasswordMessage'),
                                 },
                                 ({ getFieldValue }) => ({
                                     validator(_, value) {
@@ -97,18 +99,18 @@ const SignUp = () => {
                                         if (!value || getFieldValue('password') === value) {
                                             return Promise.resolve();
                                         }
-                                        return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                                        return Promise.reject(new Error(t('confirmPasswordMessage')));
                                     },
                                 }),
                             ]}
                         >
-                            <Input.Password className="inputPassword" placeholder="Enter your password" />
+                            <Input.Password className="inputPassword" placeholder={t('confirmPasswordPlaceholder')} />
                         </Form.Item>
                     </div>
 
                     <Form.Item className="btn-submit-signup">
                         <Button className="btn-signup" type="primary" htmlType="submit">
-                            Submit
+                            {t('signup')}
                         </Button>
                     </Form.Item>
                 </Form>
