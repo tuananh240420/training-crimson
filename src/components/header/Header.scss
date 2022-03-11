@@ -65,6 +65,9 @@
         }
     }
 }
+.ant-form-item-label > label.ant-form-item-required:not(.ant-form-item-required-mark-optional)::before {
+    display: none;
+}
 
 .ant-dropdown {
     margin-top: 20px;

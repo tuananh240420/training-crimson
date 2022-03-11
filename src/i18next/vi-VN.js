@@ -9,6 +9,9 @@ export const vi = {
         profile: 'Hồ Sơ',
         changePassword: 'Đổi mật khẩu',
         logout: 'Đăng xuất',
+        editAvatar: 'Chọn ảnh khác',
+        save: 'Lưu',
+        viewProfile: 'Hồ sơ',
         // Dashboard Page
         date: 'Ngày',
         month: 'Tháng',
@@ -33,6 +36,17 @@ export const vi = {
         userName: 'Họ Tên',
         department: 'Phòng Ban',
         role: 'Chức vụ',
+        createAppointment: 'Tạo cuộc hẹn mới',
+        title: 'Tiêu đề',
+        titlePlaceholder: 'Nhập tiêu đề',
+        from: 'Bắt đầu',
+        to: 'Kết thúc',
+        roomPlaceholder: 'Chọn Phòng',
+        roomSelectMessage: 'Hãy chọn một phòng',
+        member: 'Thành viên',
+        content: 'Nội dung',
+        submit: 'Xác nhận',
+
         // Login & Signup page
         login: 'Đăng nhập',
         signup: 'Đăng Ký',

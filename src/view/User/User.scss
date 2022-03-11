@@ -64,3 +64,13 @@
         color: #f2994a;
     }
 }
+
+.ant-form-item-control-input-content {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    justify-content: center;
+    .ant-row.ant-form-item {
+        text-align: left;
+    }
+}
