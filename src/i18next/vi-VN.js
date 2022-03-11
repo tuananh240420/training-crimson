@@ -25,5 +25,11 @@ export const vi = {
         capacity: 'Số ghế',
         delete: 'Xoá',
         edit: 'Sửa',
+
+        // User page
+        userList: 'Danh Sách Người Dùng',
+        userName: 'Họ Tên',
+        department: 'Phòng Ban',
+        role: 'Chức vụ',
     },
 };

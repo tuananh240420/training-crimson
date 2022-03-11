@@ -26,5 +26,11 @@ export const en = {
         capacity: 'Capacity',
         delete: 'Delete',
         edit: 'Edit',
+
+        // User page
+        userList: 'List User',
+        userName: 'Name',
+        department: 'Department',
+        role: 'Role',
     },
 };
