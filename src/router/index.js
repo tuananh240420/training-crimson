@@ -6,6 +6,8 @@ import Dashboard from '../view/Dashboard/Dashboard';
 import Header from '../components/Header/Header';
 import Room from '../view/Room/Room';
 import User from '../view/User/User';
+import Report from '../view/Report/Report';
+
 const Router = () => {
     const { isAuth } = useAuthContext();
 
@@ -18,12 +20,12 @@ const Router = () => {
         {
             path: '/',
             // TODO: Set tạm để code
-            element: isAuth ? <Header /> : <Navigate to="/login" />,
-            // element: <Header />,
+            // element: isAuth ? <Header /> : <Navigate to="/login" />,
+            element: <Header />,
             children: [
                 { path: 'dashboard', element: <Dashboard /> },
                 { path: 'room', element: <Room /> },
-                { path: 'report', element: <Dashboard /> },
+                { path: 'report', element: <Report /> },
                 { path: 'user', element: <User /> },
                 { path: 'dumanagement', element: <Dashboard /> },
             ],

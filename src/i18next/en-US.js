@@ -10,6 +10,9 @@ export const en = {
         profile: 'Profile',
         changePassword: 'Change Password',
         logout: 'Logout',
+        editAvatar: 'Edit',
+        save: 'Save',
+        viewProfile: 'View profile',
 
         // General
         addNew: 'Add New',
@@ -31,6 +34,16 @@ export const en = {
         userName: 'Name',
         department: 'Department',
         role: 'Role',
+        createAppointment: 'Create Appointment',
+        title: 'Title',
+        titlePlaceholder: 'Enter Title',
+        from: 'From',
+        to: 'To',
+        roomPlaceholder: 'Select Room',
+        roomSelectMessage: 'Please select a room',
+        member: 'Member',
+        content: 'Content',
+        submit: 'Submit',
         // Dashboard Page
         date: 'Date',
         month: 'Month',
@@ -59,5 +72,13 @@ export const en = {
         passwordUpperMessage: 'Upper case letter',
         passwordNumbericMessage: 'Numberic character',
         passwordSpecialMessage: 'Special character',
+
+        // Report page
+        totalUser: 'Total User',
+        totalRoomMeeting: 'Total Room Meeting',
+        totalBooking: 'Total Booking',
+        roomEmpty: 'Room Empty',
+        roomMeetings: 'Room Meeting',
+        totalBook: 'Total Book',
     },
 };
