@@ -24,25 +24,25 @@ const Room = () => {
                         yScroll="enable"
                         columns={[
                             {
-                                title: t('roomName'),
+                                title: t('userName'),
                                 dataIndex: 'name',
                                 sorter: (a, b) => a.name > b.name,
                                 render: (text) => <a>{text}</a>,
                             },
                             {
-                                title: t('location'),
-                                dataIndex: 'location',
+                                title: t('email'),
+                                dataIndex: 'email',
                                 sorter: (a, b) => a.location > b.location,
                             },
                             {
-                                title: t('status'),
-                                dataIndex: 'status',
+                                title: t('department'),
+                                dataIndex: 'department',
                                 sorter: (a, b) => a.status > b.status,
                                 render: (text) => <span className={(text === 'Meeting' && 'text-danger') || (text === 'Blocked' && 'text-warning') || 'text'}>{text}</span>,
                             },
                             {
-                                title: t('capacity'),
-                                dataIndex: 'capacity',
+                                title: t('role'),
+                                dataIndex: 'role',
                                 sorter: (a, b) => a.capacity - b.capacity,
                             },
                             {
@@ -74,30 +74,30 @@ const data = [
     {
         key: 1,
         name: 'Danang',
-        location: 'CMC',
-        status: 'Empty',
-        capacity: 20,
+        email: 'CMC',
+        department: 'DU11',
+        role: 'User',
     },
     {
         key: 2,
-        name: 'Saigon',
-        location: 'Thanh Cong',
-        status: 'Meeting',
-        capacity: 50,
+        name: 'Danang',
+        email: 'CMC',
+        department: 'DU11',
+        role: 'Admin',
     },
     {
         key: 3,
-        name: 'Hanoi',
-        location: 'Viet A',
-        status: 'Blocked',
-        capacity: 30,
+        name: 'Danang',
+        email: 'CMC',
+        department: 'DU11',
+        role: 'Admin',
     },
     {
         key: 4,
-        name: 'Hanoi',
-        location: 'Thanh Cong',
-        status: 'Empty',
-        capacity: 10,
+        name: 'Danang',
+        email: 'CMC',
+        department: 'DU11',
+        role: 'User',
     },
 ];
 
