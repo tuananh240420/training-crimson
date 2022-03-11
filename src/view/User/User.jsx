@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Button from '../../components/Button/Button';
 import { Input, Table, Space, Modal, Form, DatePicker, Select } from 'antd';
 import { PlusOutlined, ReloadOutlined, SearchOutlined, DeleteOutlined, EditOutlined } from '@ant-design/icons';
-const Room = () => {
+const User = () => {
     const { t } = useTranslation();
     const [openCreateForm, setOpenCreateForm] = useState(false);
     const hanldeCreateForm = () => {
@@ -140,4 +140,4 @@ const data = [
     },
 ];
 
-export default Room;
+export default User;

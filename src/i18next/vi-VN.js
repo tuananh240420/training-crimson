@@ -71,5 +71,13 @@ export const vi = {
         passwordUpperMessage: 'Có ít nhất 1 chữ hoa',
         passwordNumbericMessage: 'Có ít nhất 1 số',
         passwordSpecialMessage: 'Có ít nhất 1 ký tự đặc biêt',
+
+        // Report page
+        totalUser: 'Tổng số người dùng',
+        totalRoomMeeting: 'Tổng số phòng họp',
+        totalBooking: 'Tổng số lần đặt',
+        roomEmpty: 'Phòng trống',
+        roomMeetings: 'Phòng đang họp',
+        totalBook: 'Tổng số lần đặt',
     },
 };

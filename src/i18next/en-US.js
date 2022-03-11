@@ -72,5 +72,13 @@ export const en = {
         passwordUpperMessage: 'Upper case letter',
         passwordNumbericMessage: 'Numberic character',
         passwordSpecialMessage: 'Special character',
+
+        // Report page
+        totalUser: 'Total User',
+        totalRoomMeeting: 'Total Room Meeting',
+        totalBooking: 'Total Booking',
+        roomEmpty: 'Room Empty',
+        roomMeetings: 'Room Meeting',
+        totalBook: 'Total Book',
     },
 };
