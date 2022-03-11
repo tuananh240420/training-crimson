@@ -33,7 +33,7 @@ const Header = () => {
                             key={item}
                             className="header-btn"
                             size="large"
-                            type={location.pathname === `/${item.toLocaleLowerCase()}` && 'primary'}
+                            type={location.pathname.split('/').find((i) => i === `${item.toLocaleLowerCase()}`) && 'primary'}
                             onClick={() => navigate(item.toLocaleLowerCase())}
                         >
                             {t(item)}

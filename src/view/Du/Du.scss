@@ -1,0 +1,107 @@
+.dumanagement {
+    background-color: #faf8f8;
+    flex: unset;
+    .page-content {
+        padding: 0;
+        .content-header {
+            .dumanagement-btn {
+                background: #f1eded;
+                border-radius: 4px 4px 0px 0px;
+                height: 38px;
+                width: 160px;
+                border: none;
+                margin-right: 2px;
+                &.active {
+                    font-weight: 700;
+                    font-size: 14px;
+                    line-height: 17px;
+                    background: #fff;
+                    color: #ff9c23;
+                    box-shadow: -3px -1px 10px rgba(0, 0, 0, 0.16);
+
+                    &:hover {
+                        color: #ff9c23;
+                    }
+                }
+                &:hover {
+                    color: #669ee9;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}
+
+.page-content {
+    background: #ffffff;
+    box-shadow: 0px 10px 8px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    padding-right: 24px;
+    padding-left: 24px;
+
+    display: flex;
+    .content-header {
+        display: flex;
+        .search-bar {
+            .anticon-search {
+                color: #669ee9;
+                font-size: 18px;
+            }
+        }
+        .query-container {
+            display: flex;
+            gap: 16px;
+            .query-item {
+                width: 150px;
+                height: 32px;
+                @media screen and (min-width: 1600px) {
+                    width: 250px;
+                    height: 40px;
+                }
+                input::placeholder,
+                .ant-select-selection-placeholder {
+                    color: #485058;
+                }
+            }
+        }
+        .control-btn {
+            margin-left: auto;
+            display: flex;
+            gap: 16px;
+            button:last-child {
+                padding-right: 14px;
+                padding-left: 14px;
+                width: unset;
+            }
+        }
+    }
+    .content-main {
+        flex: 1;
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+
+        .ant-table-wrapper {
+            flex: 1;
+            display: flex;
+            .ant-spin-nested-loading {
+                flex: 1;
+                display: flex;
+            }
+            .ant-spin-container {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+
+                .ant-table {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                }
+                .ant-pagination {
+                    margin-top: auto;
+                }
+            }
+        }
+    }
+}
