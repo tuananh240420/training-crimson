@@ -79,5 +79,48 @@ export const vi = {
         roomEmpty: 'Phòng trống',
         roomMeetings: 'Phòng đang họp',
         totalBook: 'Tổng số lần đặt',
+
+        // Du page
+        staff: 'Nhân viên',
+        assets: 'Tài Sản',
+        deviceType: 'Thiết bị',
+        owner: 'Sở hữu',
+        project: 'Dự án',
+        deliveryUnit: 'Đơn vị',
+
+        du: 'DU',
+        export: 'Xuất',
+        team: 'Nhóm',
+        employeeid: 'ID Nhân viên',
+        gender: 'Giới tính',
+        mobile: 'Số điện thoại',
+        dateOfBirth: 'Ngày sinh',
+        cmclead: 'CMC Lead',
+        onboard: 'Ngày Onboard',
+
+        code: 'Code',
+        deviceName: 'Tên thiết bị',
+        quantity: 'Số lượng',
+        note: 'Ghi chú',
+        updateDate: 'Ngày cập nhật',
+        assignAssets: 'Gán tài sản',
+        returnAssets: 'Trả tài sản',
+        device: 'Thiết bị',
+        dateProvidedPlaceholder: 'Ngày cung cấp',
+        dateHandOverPlaceholder: 'Ngày bàn giao',
+
+        assetType: 'Kiểu thiết bị',
+        brand: 'Nhãn hiệu',
+        receivedDate: 'Ngày nhận',
+
+        ownerName: 'Chủ sở hữu',
+        description: 'Mô tả',
+
+        projectName: 'Dự án',
+        leader: 'Leader',
+        startDay: 'Ngày bắt đầu',
+
+        duName: 'Du',
+        manager: 'Quản lý',
     },
 };

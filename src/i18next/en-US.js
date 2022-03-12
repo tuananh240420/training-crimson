@@ -80,5 +80,48 @@ export const en = {
         roomEmpty: 'Room Empty',
         roomMeetings: 'Room Meeting',
         totalBook: 'Total Book',
+
+        // Du page
+        staff: 'Staff',
+        assets: 'Assets',
+        deviceType: 'DeviceType',
+        owner: 'Owner',
+        project: 'Project',
+        deliveryUnit: 'Delivery Unit',
+
+        du: 'DU',
+        export: 'Export',
+        team: 'Team',
+        employeeid: 'Employee ID',
+        gender: 'Gender',
+        mobile: 'Mobile',
+        dateOfBirth: 'Date Of Birth',
+        cmclead: 'CMC Lead',
+        onboard: 'Onboard',
+
+        code: 'Code',
+        deviceName: 'Device Name',
+        quantity: 'Quantity',
+        note: 'Note',
+        updateDate: 'Update Date',
+        assignAssets: 'Assign Assets',
+        returnAssets: 'Return Assets',
+        device: 'Device',
+        dateProvidedPlaceholder: 'Date provided',
+        dateHandOverPlaceholder: 'Date hand over',
+
+        assetType: 'Asset Type',
+        brand: 'Brand',
+        receivedDate: 'Received Date',
+
+        ownerName: 'Owner Name',
+        description: 'Description',
+
+        projectName: 'Project Name',
+        leader: 'Leader',
+        startDay: 'Start Day',
+
+        duName: 'Du Name',
+        manager: 'Manager',
     },
 };

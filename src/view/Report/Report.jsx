@@ -11,7 +11,7 @@ const Report = () => {
         <div className="page report">
             <h1 className="page-title">{t('report')}</h1>
             <div className="page-content">
-                <div className="content-header">
+                <div className="content-header d-block">
                     <Row gutter={30}>
                         <Col span={48}>
                             <Card>
