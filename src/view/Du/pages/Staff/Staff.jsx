@@ -6,7 +6,7 @@ import Button from '../../../../components/Button/Button';
 import moment from 'moment';
 import Confirmation from '../../../../components/Confirmation/Confirmation';
 
-const FORMAT_DATE = 'dd/MM/YYYY';
+const FORMAT_DATE = 'DD/MM/YYYY';
 const Staff = () => {
     const { t } = useTranslation();
     const [forms] = Form.useForm();
@@ -100,7 +100,7 @@ const Staff = () => {
                                         </Select>
                                     </Form.Item>
                                     <Form.Item label={t('onboard')} name="onboard" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
+                                        <DatePicker format={FORMAT_DATE} style={{ width: '100%' }} />
                                     </Form.Item>
                                 </Form.Item>
 
@@ -118,7 +118,7 @@ const Staff = () => {
 
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('dateOfBirth')} name="dateOfBirth" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
+                                        <DatePicker style={{ width: '100%' }} format={FORMAT_DATE} />
                                     </Form.Item>
                                     <Form.Item label={t('umid')} name="umid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('umidPlaceholder')} />
