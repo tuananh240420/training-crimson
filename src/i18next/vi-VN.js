@@ -146,5 +146,8 @@ export const vi = {
         createDevice: 'Tạo thiết bị mới',
         deviceCode: 'Mã thiết bị',
         deviceCodePlaceholder: 'Nhập mã thiết bị',
+
+        createProject: 'Tạo dự án mới',
+        projectNamePlaceholder: 'Nhập tên dự án',
     },
 };

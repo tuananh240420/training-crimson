@@ -148,5 +148,8 @@ export const en = {
         createDevice: 'Create Device',
         deviceCode: 'Device code',
         deviceCodePlaceholder: 'Enter device code',
+
+        createProject: 'Create Project',
+        projectNamePlaceholder: 'Enter project name',
     },
 };
