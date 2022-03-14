@@ -134,5 +134,13 @@ export const vi = {
         duPlaceholder: 'Chọn DU',
         cmcleadPlaceholder: 'Chọn leader',
         statusPlaceholder: 'Chọn trạng thái',
+
+        addNewAsset: 'Thêm tài sản mới',
+        deviceid: 'ID thiết bị',
+        deviceidPlaceholder: 'Nhập ID thiết bị',
+        deviceNamePlaceholder: 'Nhập tên thiết bị',
+        deviceTypePlaceholder: 'Nhập kiểu thiết bị',
+        quantityPlaceholder: 'Nhập số lượng',
+        ownerPlaceholder: 'Nhập tên chủ sở hữu ',
     },
 };

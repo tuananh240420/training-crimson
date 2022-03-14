@@ -136,5 +136,13 @@ export const en = {
         duPlaceholder: 'Select DU',
         cmcleadPlaceholder: 'Select leader',
         statusPlaceholder: 'Select status',
+
+        addNewAsset: 'Add New Asset',
+        deviceid: 'Device ID',
+        deviceidPlaceholder: 'Enter device ID',
+        deviceNamePlaceholder: 'Enter device name',
+        deviceTypePlaceholder: 'Select device type',
+        quantityPlaceholder: 'Enter quantity',
+        ownerPlaceholder: 'Enter owner name',
     },
 };
