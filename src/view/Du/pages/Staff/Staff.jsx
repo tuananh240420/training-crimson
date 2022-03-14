@@ -3,11 +3,36 @@ import { useTranslation } from 'react-i18next';
 import { Input, Table, Space, Modal, Form, DatePicker, Select, Tag } from 'antd';
 import { PlusOutlined, ReloadOutlined, SearchOutlined, DeleteOutlined, EditOutlined, ExportOutlined, ZoomInOutlined } from '@ant-design/icons';
 import Button from '../../../../components/Button/Button';
+import moment from 'moment';
+import Confirmation from '../../../../components/Confirmation/Confirmation';
+
+const FORMAT_DATE = 'DD/MM/YYYY';
 const Staff = () => {
     const { t } = useTranslation();
+    const [forms] = Form.useForm();
+    const [modal] = Modal.useModal();
     const [openCreateForm, setOpenCreateForm] = useState(false);
+    const [openConfirmModal, setOpenConfirmModal] = useState(false);
     const hanldeCreateForm = () => {
+        setOpenConfirmModal(true);
         // TODO: do something
+    };
+
+    const hanldeOpenCreateStaffForm = () => {
+        forms.resetFields();
+        setOpenCreateForm(true);
+    };
+
+    const hanldeClickView = (data) => () => {
+        forms.setFieldsValue({ ...data, dateOfBirth: moment(data.dateOfBirth, FORMAT_DATE), onboard: moment(data.onboard, FORMAT_DATE) });
+        setOpenCreateForm(true);
+    };
+
+    const handleOk = () => {
+        // TODO: do something
+        console.log(forms.getFieldValue());
+        setOpenConfirmModal(false);
+        setOpenCreateForm(false);
     };
     return (
         <div className=" page staff">
@@ -38,12 +63,27 @@ const Staff = () => {
                     </div>
 
                     <div className="control-btn">
-                        <Button icon={<PlusOutlined />} onClick={() => setOpenCreateForm(true)}>
+                        <Button icon={<PlusOutlined />} onClick={hanldeOpenCreateStaffForm}>
                             {t('addNew')}
                         </Button>
-                        <Modal title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
-                            <Form style={{ width: '100%' }} className="flex-col justify-center text-center" layout="vertical" onFinish={hanldeCreateForm} autoComplete="off">
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                        <Modal
+                            modal={modal}
+                            title={Object.keys(forms.getFieldValue()).length === 0 ? t('createStaff') : t('viewAndUpdateStaff')}
+                            centered
+                            visible={openCreateForm}
+                            footer={null}
+                            width={1014}
+                            onCancel={() => setOpenCreateForm(false)}
+                        >
+                            <Form
+                                style={{ width: '100%' }}
+                                form={forms}
+                                className="flex-col justify-center text-center"
+                                layout="vertical"
+                                onFinish={hanldeCreateForm}
+                                autoComplete="off"
+                            >
+                                <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('name')} name="name" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('namePlaceholder')} />
                                     </Form.Item>
@@ -52,21 +92,21 @@ const Staff = () => {
                                     </Form.Item>
                                 </Form.Item>
 
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('gender')} name="gender" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <Select defaultValue={t('male')}>
+                                        <Select>
                                             <Select.Option value={t('male')}>{t('male')}</Select.Option>
                                             <Select.Option value={t('female')}>{t('female')}</Select.Option>
                                         </Select>
                                     </Form.Item>
                                     <Form.Item label={t('onboard')} name="onboard" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
+                                        <DatePicker format={FORMAT_DATE} style={{ width: '100%' }} />
                                     </Form.Item>
                                 </Form.Item>
 
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('mail')} name="mailType" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <Select defaultValue="CMC">
+                                        <Select>
                                             <Select.Option value="cmc=">CMC</Select.Option>
                                             <Select.Option value="mcm">MCM</Select.Option>
                                         </Select>
@@ -76,16 +116,16 @@ const Staff = () => {
                                     </Form.Item>
                                 </Form.Item>
 
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('dateOfBirth')} name="dateOfBirth" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
+                                        <DatePicker style={{ width: '100%' }} format={FORMAT_DATE} />
                                     </Form.Item>
                                     <Form.Item label={t('umid')} name="umid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('umidPlaceholder')} />
                                     </Form.Item>
                                 </Form.Item>
 
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('employeeid')} name="employeeid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('employeeidPlaceholder')} />
                                     </Form.Item>
@@ -97,7 +137,7 @@ const Staff = () => {
                                     </Form.Item>
                                 </Form.Item>
 
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('project')} name="project" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select placeholder={t('projectPlaceholder')}>
                                             <Select.Option value="project 1">project 1</Select.Option>
@@ -112,7 +152,7 @@ const Staff = () => {
                                     </Form.Item>
                                 </Form.Item>
 
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                <Form.Item className="flex-row mb-0" wrapperCol={24}>
                                     <Form.Item label={t('cmclead')} name="cmclead" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select placeholder={t('cmcleadPlaceholder')}>
                                             <Select.Option value="leader 1">leader 1</Select.Option>
@@ -134,6 +174,7 @@ const Staff = () => {
                                 </Form.Item>
                             </Form>
                         </Modal>
+                        <Confirmation openConfirmModal={openConfirmModal} onCancel={() => setOpenConfirmModal(false)} handleOk={handleOk} />
                         <Button icon={<ExportOutlined />}>{t('export')}</Button>
                         <Button icon={<ReloadOutlined />}></Button>
                     </div>
@@ -201,10 +242,10 @@ const Staff = () => {
                                 title: t('actions'),
                                 key: 'actions',
                                 sorter: true,
-                                render: () => (
+                                render: (_, row) => (
                                     <Space size="middle">
-                                        <Button type="text" icon={<ZoomInOutlined />}></Button>
-                                        <Button type="text" icon={<EditOutlined />}></Button>
+                                        <Button type="text" icon={<ZoomInOutlined />} onClick={hanldeClickView(row)}></Button>
+                                        <Button type="text" icon={<EditOutlined />} onClick={hanldeClickView(row)}></Button>
                                         <Button type="text" icon={<DeleteOutlined />}></Button>
                                     </Space>
                                 ),

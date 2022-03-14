@@ -61,6 +61,10 @@
                 @media screen and (min-width: 1600px) {
                     width: 250px;
                     height: 40px;
+                    .ant-select-selector {
+                        height: 40px;
+                        align-items: center;
+                    }
                 }
                 input::placeholder,
                 .ant-select-selection-placeholder {
@@ -105,6 +109,88 @@
                 .ant-pagination {
                     margin-top: auto;
                 }
+            }
+        }
+    }
+}
+
+.ant-select-selection-placeholder {
+    text-align: left;
+}
+
+.info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border-radius: 20px;
+    border: 1px dashed #ccc;
+    .ant-col-48 {
+        display: block;
+        flex: 0 0 20%;
+        max-width: 20%;
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.view-user-details-modal {
+    .ant-modal-body {
+        display: flex;
+        flex-direction: row;
+        .user_avatar {
+            padding-top: 80px;
+            align-self: stretch;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 16px;
+            .ant-avatar {
+                width: 154px;
+                height: 154px;
+            }
+        }
+        .ant-divider-vertical {
+            position: unset;
+            height: unset;
+            align-self: stretch;
+            margin: 0 40px;
+        }
+        .user {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: #fff;
+            gap: 40px;
+            &__info,
+            &__device {
+                display: flex;
+                flex-direction: column;
+                gap: 30px;
+                .device {
+                    padding: 20px;
+                    border-radius: 16px;
+                    border: 1px dashed #ccc;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 30px;
+                    button {
+                        width: 230px;
+                        margin-left: auto;
+                    }
+                }
+            }
+
+            &__title {
+                font-weight: 700;
+                background: linear-gradient(96.34deg, #ff9c23 -5.73%, #fd53cf 155.34%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                margin-bottom: 30px;
+                text-fill-color: transparent;
             }
         }
     }

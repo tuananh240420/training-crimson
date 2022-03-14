@@ -21,29 +21,21 @@ const Project = () => {
                         <Button icon={<PlusOutlined />} onClick={() => setOpenCreateForm(true)}>
                             {t('create')}
                         </Button>
-                        <Modal title={t('createAppointment')} centered visible={openCreateForm} footer={null} width={526} onCancel={() => setOpenCreateForm(false)}>
+                        <Modal title={t('createProject')} centered visible={openCreateForm} footer={null} width={526} onCancel={() => setOpenCreateForm(false)}>
                             <Form style={{ width: '100%' }} className="flex-col justify-center text-center" layout="vertical" onFinish={hanldeCreateForm} autoComplete="off">
-                                <Form.Item label={t('title')} name="title">
-                                    <Input placeholder={t('titlePlaceholder')} />
+                                <Form.Item label={t('projectName')} name="title">
+                                    <Input placeholder={t('projectNamePlaceholder')} />
                                 </Form.Item>
-                                <Form.Item style={{ width: '100%' }} label={t('date')} name="date">
+                                <Form.Item style={{ width: '100%' }} label={t('startDay')} name="startDay">
                                     <DatePicker style={{ width: '100%' }} />
                                 </Form.Item>
-                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
-                                    <Form.Item label={t('from')} name="dateFrom" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
-                                    </Form.Item>
-                                    <Form.Item label={t('to')} name="dateTo" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
-                                    </Form.Item>
+                                <Form.Item label={t('cmclead')} name="cmclead">
+                                    <Select placeholder={t('cmcleadPlaceholder')}>
+                                        <Select.Option value="leader 1">leader 1</Select.Option>
+                                        <Select.Option value="leader 2">leader 2</Select.Option>
+                                    </Select>
                                 </Form.Item>
-                                <Form.Item name="selectRoom" label={t('room')} hasFeedback rules={[{ required: true, message: t('roomSelectMessage') }]}>
-                                    <Select placeholder={t('roomPlaceholder')}></Select>
-                                </Form.Item>
-                                <Form.Item style={{ width: '100%' }} label={t('member')}>
-                                    <Input.TextArea style={{ width: '100%' }} />
-                                </Form.Item>
-                                <Form.Item label={t('content')}>
+                                <Form.Item label={t('description')}>
                                     <Input.TextArea />
                                 </Form.Item>
 

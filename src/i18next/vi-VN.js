@@ -146,5 +146,18 @@ export const vi = {
         createDevice: 'Tạo thiết bị mới',
         deviceCode: 'Mã thiết bị',
         deviceCodePlaceholder: 'Nhập mã thiết bị',
+
+        createProject: 'Tạo dự án mới',
+        projectNamePlaceholder: 'Nhập tên dự án',
+
+        recipientEmail: 'Email người nhận',
+        recipientEmailPlaceholder: 'Nhập Email người nhận',
+        cancel: 'Trở lại',
+
+        infomationUser: 'Thông tin người dùng',
+        infomationDevice: 'Thông tin thiết bị',
+        dateProvided: 'Ngày cấp',
+        viewUserDetail: 'Hồ sơ người dùng',
+        viewAndUpdateStaff: 'Xem và sửa thông tin nhân viên',
     },
 };

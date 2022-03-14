@@ -148,5 +148,18 @@ export const en = {
         createDevice: 'Create Device',
         deviceCode: 'Device code',
         deviceCodePlaceholder: 'Enter device code',
+
+        createProject: 'Create Project',
+        projectNamePlaceholder: 'Enter project name',
+
+        recipientEmail: "Recipient's email",
+        recipientEmailPlaceholder: "Enter recipient's email address",
+        cancel: 'Cancel',
+
+        infomationUser: 'Infomation User',
+        infomationDevice: 'Infomation Device',
+        dateProvided: 'Date provided',
+        viewUserDetail: 'View User Detail',
+        viewAndUpdateStaff: 'view and update staff',
     },
 };
