@@ -2,25 +2,25 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input, Table, Space, Modal, Form, DatePicker, Select, Tag } from 'antd';
 import { PlusOutlined, ReloadOutlined, SearchOutlined, DeleteOutlined, EditOutlined, ExportOutlined, ZoomInOutlined } from '@ant-design/icons';
-import format from 'dayjs';
 import Button from '../../../../components/Button/Button';
+import moment from 'moment';
+
+const FORMAT_DATE = 'dd/MM/YYYY';
 const Staff = () => {
     const { t } = useTranslation();
+    const [forms] = Form.useForm();
     const [openCreateForm, setOpenCreateForm] = useState(false);
-    const [staffData, setStaffData] = useState({});
     const hanldeCreateForm = () => {
         // TODO: do something
     };
 
     const hanldeOpenCreateStaffForm = () => {
-        setStaffData({});
+        forms.setFieldsValue({});
         setOpenCreateForm(true);
     };
 
-    const hanldeClickView = (data) => {
-        console.log(data);
-        const dataClone = { ...data, onboard: format(data.onboard), dateOfBirth: format(data.dateOfBirth) };
-        setStaffData(dataClone);
+    const hanldeClickView = (data) => () => {
+        forms.setFieldsValue({ ...data, dateOfBirth: moment(data.dateOfBirth, FORMAT_DATE), onboard: moment(data.onboard, FORMAT_DATE) });
         setOpenCreateForm(true);
     };
     return (
@@ -57,8 +57,9 @@ const Staff = () => {
                         </Button>
                         <Modal title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
                             <Form
-                                initialValues={staffData}
                                 style={{ width: '100%' }}
+                                // initialValues={staffData}
+                                form={forms}
                                 className="flex-col justify-center text-center"
                                 layout="vertical"
                                 onFinish={hanldeCreateForm}
@@ -80,12 +81,7 @@ const Staff = () => {
                                             <Select.Option value={t('female')}>{t('female')}</Select.Option>
                                         </Select>
                                     </Form.Item>
-                                    <Form.Item
-                                        // initialValue={Date(staffData?.onboard)}
-                                        label={t('onboard')}
-                                        name="onboard"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
-                                    >
+                                    <Form.Item label={t('onboard')} name="onboard" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <DatePicker style={{ width: '100%' }} />
                                     </Form.Item>
                                 </Form.Item>
@@ -103,12 +99,7 @@ const Staff = () => {
                                 </Form.Item>
 
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
-                                    <Form.Item
-                                        // initialValue={Date(staffData?.dateOfBirth)}
-                                        label={t('dateOfBirth')}
-                                        name="dateOfBirth"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
-                                    >
+                                    <Form.Item label={t('dateOfBirth')} name="dateOfBirth" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <DatePicker style={{ width: '100%' }} />
                                     </Form.Item>
                                     <Form.Item label={t('umid')} name="umid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
@@ -234,8 +225,8 @@ const Staff = () => {
                                 sorter: true,
                                 render: (_, row) => (
                                     <Space size="middle">
-                                        <Button type="text" icon={<ZoomInOutlined />} onClick={() => hanldeClickView(row)}></Button>
-                                        <Button type="text" icon={<EditOutlined />} onClick={() => hanldeClickView(row)}></Button>
+                                        <Button type="text" icon={<ZoomInOutlined />} onClick={hanldeClickView(row)}></Button>
+                                        <Button type="text" icon={<EditOutlined />} onClick={hanldeClickView(row)}></Button>
                                         <Button type="text" icon={<DeleteOutlined />}></Button>
                                     </Space>
                                 ),

@@ -1,17 +1,17 @@
-import { Navigate, useRoutes } from 'react-router-dom';
-import { useAuthContext } from '../auth/AuthContext';
+import { useRoutes } from 'react-router-dom';
+// import { useAuthContext } from '../auth/AuthContext';
 import Login from '../view/Login/Login';
 import SignUp from '../view/SignUp/SignUp';
 import Dashboard from '../view/Dashboard/Dashboard';
-import Header from '../components/Header/Header';
 import Room from '../view/Room/Room';
 import User from '../view/User/User';
 import Report from '../view/Report/Report';
 import Du from '../view/Du/Du';
 import { Staff, Assets, DeliveryUnit, DeviceType, Owner, Project } from '../view/Du/pages';
+import Header from '../components/Header';
 
 const Router = () => {
-    const { isAuth } = useAuthContext();
+    // const { isAuth } = useAuthContext();
 
     return useRoutes([
         {
