@@ -4,13 +4,17 @@ import { Input, Table, Space, Modal, Form, DatePicker, Select, Tag } from 'antd'
 import { PlusOutlined, ReloadOutlined, SearchOutlined, DeleteOutlined, EditOutlined, ExportOutlined, ZoomInOutlined } from '@ant-design/icons';
 import Button from '../../../../components/Button/Button';
 import moment from 'moment';
+import Confirmation from '../../../../components/Confirmation/Confirmation';
 
 const FORMAT_DATE = 'dd/MM/YYYY';
 const Staff = () => {
     const { t } = useTranslation();
     const [forms] = Form.useForm();
+    const [modal] = Modal.useModal();
     const [openCreateForm, setOpenCreateForm] = useState(false);
+    const [openConfirmModal, setOpenConfirmModal] = useState(false);
     const hanldeCreateForm = () => {
+        setOpenConfirmModal(true);
         // TODO: do something
     };
 
@@ -20,9 +24,15 @@ const Staff = () => {
     };
 
     const hanldeClickView = (data) => () => {
-        console.log(forms);
         forms.setFieldsValue({ ...data, dateOfBirth: moment(data.dateOfBirth, FORMAT_DATE), onboard: moment(data.onboard, FORMAT_DATE) });
         setOpenCreateForm(true);
+    };
+
+    const handleOk = () => {
+        // TODO: do something
+
+        setOpenConfirmModal(false);
+        setOpenCreateForm(false);
     };
     return (
         <div className=" page staff">
@@ -56,7 +66,7 @@ const Staff = () => {
                         <Button icon={<PlusOutlined />} onClick={hanldeOpenCreateStaffForm}>
                             {t('addNew')}
                         </Button>
-                        <Modal title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
+                        <Modal modal={modal} title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
                             <Form
                                 style={{ width: '100%' }}
                                 form={forms}
@@ -156,6 +166,7 @@ const Staff = () => {
                                 </Form.Item>
                             </Form>
                         </Modal>
+                        <Confirmation openConfirmModal={openConfirmModal} onCancel={() => setOpenConfirmModal(false)} handleOk={handleOk} />
                         <Button icon={<ExportOutlined />}>{t('export')}</Button>
                         <Button icon={<ReloadOutlined />}></Button>
                     </div>

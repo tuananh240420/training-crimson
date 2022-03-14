@@ -12,7 +12,7 @@ i18n.use(initReactI18next) // passes i18n down to react-i18next
             en: en,
             vi: vi,
         },
-        lng: 'vi', // if you're using a language detector, do not define the lng option
+        lng: 'en', // if you're using a language detector, do not define the lng option
         fallbackLng: 'en',
 
         interpolation: {

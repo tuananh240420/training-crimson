@@ -25,7 +25,59 @@ const Assets = () => {
                     </div>
 
                     <div className="control-btn">
-                        <Button icon={<FormOutlined />}>{t('assignAssets')}</Button>
+                        <Button icon={<FormOutlined />}>{t('assignAssets')} </Button>
+                        <Modal title={t('addNewAsset')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
+                            <Form style={{ width: '100%' }} className="flex-col justify-center text-center" layout="vertical" onFinish={hanldeCreateForm} autoComplete="off">
+                                <Form.Item label={t('date')} name="date" style={{ width: '100%' }}>
+                                    <DatePicker style={{ width: '100%' }} />
+                                </Form.Item>
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('deviceid')} name="deviceid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('deviceidPlaceholder')} />
+                                    </Form.Item>
+                                    <Form.Item label={t('deviceName')} name="deviceName" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('deviceNamePlaceholder')} />
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('deviceType')} name="deviceType" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('deviceTypePlaceholder')}>
+                                            <Select.Option value="device1">device 1</Select.Option>
+                                            <Select.Option value="device2">device 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('quantity')} name="quantity" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('quantityPlaceholder')} />
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('owner')} name="owner" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('ownerPlaceholder')}>
+                                            <Select.Option value="owner1=">owner 1</Select.Option>
+                                            <Select.Option value="owner2">owner 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('status')} name="status" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('statusPlaceholder')}>
+                                            <Select.Option value="status 1">status 1</Select.Option>
+                                            <Select.Option value="status 2">status 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item label={t('note')} name="note">
+                                    <Input.TextArea style={{ width: '100%', resize: 'none' }} />
+                                </Form.Item>
+
+                                <Form.Item className="btn-submit">
+                                    <Button style={{ width: '254px' }} className="btn-save mt-6" type="primary" htmlType="submit">
+                                        {t('submit')}
+                                    </Button>
+                                </Form.Item>
+                            </Form>
+                        </Modal>
                         <Button icon={<MinusOutlined />}>{t('returnAssets')}</Button>
 
                         <Button icon={<PlusOutlined />} onClick={() => setOpenCreateForm(true)}>
