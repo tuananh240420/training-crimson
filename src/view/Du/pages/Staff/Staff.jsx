@@ -41,30 +41,90 @@ const Staff = () => {
                         <Button icon={<PlusOutlined />} onClick={() => setOpenCreateForm(true)}>
                             {t('addNew')}
                         </Button>
-                        <Modal title={t('createAppointment')} centered visible={openCreateForm} footer={null} width={526} onCancel={() => setOpenCreateForm(false)}>
+                        <Modal title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
                             <Form style={{ width: '100%' }} className="flex-col justify-center text-center" layout="vertical" onFinish={hanldeCreateForm} autoComplete="off">
-                                <Form.Item label={t('title')} name="title">
-                                    <Input placeholder={t('titlePlaceholder')} />
-                                </Form.Item>
-                                <Form.Item style={{ width: '100%' }} label={t('date')} name="date">
-                                    <DatePicker style={{ width: '100%' }} />
-                                </Form.Item>
                                 <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
-                                    <Form.Item label={t('from')} name="dateFrom" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('name')} name="name" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('namePlaceholder')} />
+                                    </Form.Item>
+                                    <Form.Item label={t('phone')} name="phone" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('phonePlaceholder')} />
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('gender')} name="gender" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select defaultValue={t('male')}>
+                                            <Select.Option value={t('male')}>{t('male')}</Select.Option>
+                                            <Select.Option value={t('female')}>{t('female')}</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('onboard')} name="onboard" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <DatePicker style={{ width: '100%' }} />
                                     </Form.Item>
-                                    <Form.Item label={t('to')} name="dateTo" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('mail')} name="mailType" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select defaultValue="CMC">
+                                            <Select.Option value="cmc=">CMC</Select.Option>
+                                            <Select.Option value="mcm">MCM</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('mail')} name="mail" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('emailPlaceholder')} />
                                     </Form.Item>
                                 </Form.Item>
-                                <Form.Item name="selectRoom" label={t('room')} hasFeedback rules={[{ required: true, message: t('roomSelectMessage') }]}>
-                                    <Select placeholder={t('roomPlaceholder')}></Select>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('dateOfBirth')} name="dateOfBirth" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <DatePicker style={{ width: '100%' }} />
+                                    </Form.Item>
+                                    <Form.Item label={t('umid')} name="umid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('umidPlaceholder')} />
+                                    </Form.Item>
                                 </Form.Item>
-                                <Form.Item style={{ width: '100%' }} label={t('member')}>
-                                    <Input.TextArea style={{ width: '100%' }} />
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('employeeid')} name="employeeid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('employeeidPlaceholder')} />
+                                    </Form.Item>
+                                    <Form.Item label={t('role')} name="role" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('rolePlaceholder')}>
+                                            <Select.Option value={t('leader')}>{t('leader')}</Select.Option>
+                                            <Select.Option value={t('user')}>{t('user')}</Select.Option>
+                                        </Select>
+                                    </Form.Item>
                                 </Form.Item>
-                                <Form.Item label={t('content')}>
-                                    <Input.TextArea />
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('project')} name="project" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('projectPlaceholder')}>
+                                            <Select.Option value="project 1">project 1</Select.Option>
+                                            <Select.Option value="project 2">project 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('du')} name="du" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('duPlaceholder')}>
+                                            <Select.Option value="du 11">du 11</Select.Option>
+                                            <Select.Option value="du 1">du 1</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('cmclead')} name="cmclead" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('cmcleadPlaceholder')}>
+                                            <Select.Option value="leader 1">leader 1</Select.Option>
+                                            <Select.Option value="leader 2">leader 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('status')} name="status" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('statusPlaceholder')}>
+                                            <Select.Option value="status 1">status 1</Select.Option>
+                                            <Select.Option value="status 2">status 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
                                 </Form.Item>
 
                                 <Form.Item className="btn-submit">

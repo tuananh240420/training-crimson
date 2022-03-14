@@ -122,5 +122,17 @@ export const vi = {
 
         duName: 'Du',
         manager: 'Quản lý',
+
+        createStaff: 'Tạo nhân viên mới',
+        male: 'Nam',
+        female: 'Nữ',
+        umid: 'UMID',
+        umidPlaceholder: 'Nhập UMID',
+        employeeidPlaceholder: 'Nhập ID nhân viên',
+        rolePlaceholder: 'Chọn vị trí',
+        projectPlaceholder: 'Chọn dự án',
+        duPlaceholder: 'Chọn DU',
+        cmcleadPlaceholder: 'Chọn leader',
+        statusPlaceholder: 'Chọn trạng thái',
     },
 };

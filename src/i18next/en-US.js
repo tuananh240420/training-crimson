@@ -17,6 +17,7 @@ export const en = {
         // General
         addNew: 'Add New',
         search: 'Search',
+        mail: 'Mail',
 
         // Room page
         roomlist: 'List Room',
@@ -123,5 +124,17 @@ export const en = {
 
         duName: 'Du Name',
         manager: 'Manager',
+
+        createStaff: 'Create Staff',
+        male: 'Male',
+        female: 'Female',
+        umid: 'UMID',
+        umidPlaceholder: 'Enter your UMID',
+        employeeidPlaceholder: 'Enter your employee ID',
+        rolePlaceholder: 'Select role',
+        projectPlaceholder: 'Select project',
+        duPlaceholder: 'Select DU',
+        cmcleadPlaceholder: 'Select leader',
+        statusPlaceholder: 'Select status',
     },
 };
