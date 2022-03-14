@@ -15,11 +15,12 @@ const Staff = () => {
     };
 
     const hanldeOpenCreateStaffForm = () => {
-        forms.setFieldsValue({});
+        forms.resetFields();
         setOpenCreateForm(true);
     };
 
     const hanldeClickView = (data) => () => {
+        console.log(forms);
         forms.setFieldsValue({ ...data, dateOfBirth: moment(data.dateOfBirth, FORMAT_DATE), onboard: moment(data.onboard, FORMAT_DATE) });
         setOpenCreateForm(true);
     };
@@ -58,7 +59,6 @@ const Staff = () => {
                         <Modal title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
                             <Form
                                 style={{ width: '100%' }}
-                                // initialValues={staffData}
                                 form={forms}
                                 className="flex-col justify-center text-center"
                                 layout="vertical"
