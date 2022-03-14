@@ -142,5 +142,9 @@ export const vi = {
         deviceTypePlaceholder: 'Nhập kiểu thiết bị',
         quantityPlaceholder: 'Nhập số lượng',
         ownerPlaceholder: 'Nhập tên chủ sở hữu ',
+
+        createDevice: 'Tạo thiết bị mới',
+        deviceCode: 'Mã thiết bị',
+        deviceCodePlaceholder: 'Nhập mã thiết bị',
     },
 };

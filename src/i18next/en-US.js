@@ -144,5 +144,9 @@ export const en = {
         deviceTypePlaceholder: 'Select device type',
         quantityPlaceholder: 'Enter quantity',
         ownerPlaceholder: 'Enter owner name',
+
+        createDevice: 'Create Device',
+        deviceCode: 'Device code',
+        deviceCodePlaceholder: 'Enter device code',
     },
 };
