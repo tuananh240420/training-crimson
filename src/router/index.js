@@ -1,14 +1,15 @@
 import { Navigate, useRoutes } from 'react-router-dom';
 import { useAuthContext } from '../auth/AuthContext';
-import Login from '../view/Login/Login';
+import Login from '../view/login/Login';
+import Header from '../components/header/Header';
+import Dashboard from '../view/dashboard/Dashboard';
 import SignUp from '../view/SignUp/SignUp';
-import Dashboard from '../view/Dashboard/Dashboard';
-import Header from '../components/Header/Header';
 import Room from '../view/Room/Room';
 import User from '../view/User/User';
 import Report from '../view/Report/Report';
 import Du from '../view/Du/Du';
 import { Staff, Assets, DeliveryUnit, DeviceType, Owner, Project } from '../view/Du/pages';
+import ErrorPage from '../components/ErrorPage/ErrorPage';
 
 const Router = () => {
     const { isAuth } = useAuthContext();
@@ -46,6 +47,10 @@ const Router = () => {
         {
             path: '/signup',
             element: <SignUp />,
+        },
+        {
+            path: '/errorpage',
+            element: <ErrorPage />,
         },
     ]);
 };
