@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Input, Table, Space, Modal, Form, DatePicker, Select, Tag } from 'antd';
 import { PlusOutlined, ReloadOutlined, SearchOutlined, DeleteOutlined, EditOutlined, ExportOutlined, ZoomInOutlined } from '@ant-design/icons';
+import format from 'dayjs';
 import Button from '../../../../components/Button/Button';
 const Staff = () => {
     const { t } = useTranslation();
@@ -16,9 +17,10 @@ const Staff = () => {
         setOpenCreateForm(true);
     };
 
-    const hanldeClickView = (e) => {
-        const dataRowKey = e.target.closest('tr').dataset.rowKey;
-        setStaffData(data[dataRowKey - 1]);
+    const hanldeClickView = (data) => {
+        console.log(data);
+        const dataClone = { ...data, onboard: format(data.onboard), dateOfBirth: format(data.dateOfBirth) };
+        setStaffData(dataClone);
         setOpenCreateForm(true);
     };
     return (
@@ -54,23 +56,25 @@ const Staff = () => {
                             {t('addNew')}
                         </Button>
                         <Modal title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
-                            <Form style={{ width: '100%' }} className="flex-col justify-center text-center" layout="vertical" onFinish={hanldeCreateForm} autoComplete="off">
+                            <Form
+                                initialValues={staffData}
+                                style={{ width: '100%' }}
+                                className="flex-col justify-center text-center"
+                                layout="vertical"
+                                onFinish={hanldeCreateForm}
+                                autoComplete="off"
+                            >
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
-                                    <Form.Item initialValue={staffData?.name} label={t('name')} name="name" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('name')} name="name" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('namePlaceholder')} />
                                     </Form.Item>
-                                    <Form.Item initialValue={staffData?.mobile} label={t('phone')} name="phone" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('phone')} name="phone" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('phonePlaceholder')} />
                                     </Form.Item>
                                 </Form.Item>
 
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
-                                    <Form.Item
-                                        initialValue={staffData?.gender || t('male')}
-                                        label={t('gender')}
-                                        name="gender"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
-                                    >
+                                    <Form.Item label={t('gender')} name="gender" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select>
                                             <Select.Option value={t('male')}>{t('male')}</Select.Option>
                                             <Select.Option value={t('female')}>{t('female')}</Select.Option>
@@ -87,13 +91,13 @@ const Staff = () => {
                                 </Form.Item>
 
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
-                                    <Form.Item initialValue={staffData?.team} label={t('mail')} name="mailType" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('mail')} name="mailType" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select>
                                             <Select.Option value="cmc=">CMC</Select.Option>
                                             <Select.Option value="mcm">MCM</Select.Option>
                                         </Select>
                                     </Form.Item>
-                                    <Form.Item initialValue={staffData?.mail} label={t('mail')} name="mail" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('mail')} name="mail" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('emailPlaceholder')} />
                                     </Form.Item>
                                 </Form.Item>
@@ -107,21 +111,16 @@ const Staff = () => {
                                     >
                                         <DatePicker style={{ width: '100%' }} />
                                     </Form.Item>
-                                    <Form.Item initialValue={staffData?.umid} label={t('umid')} name="umid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('umid')} name="umid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('umidPlaceholder')} />
                                     </Form.Item>
                                 </Form.Item>
 
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
-                                    <Form.Item
-                                        initialValue={staffData?.employeeid}
-                                        label={t('employeeid')}
-                                        name="employeeid"
-                                        style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}
-                                    >
+                                    <Form.Item label={t('employeeid')} name="employeeid" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Input placeholder={t('employeeidPlaceholder')} />
                                     </Form.Item>
-                                    <Form.Item initialValue={staffData?.role} label={t('role')} name="role" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('role')} name="role" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select placeholder={t('rolePlaceholder')}>
                                             <Select.Option value={t('leader')}>{t('leader')}</Select.Option>
                                             <Select.Option value={t('user')}>{t('user')}</Select.Option>
@@ -130,14 +129,14 @@ const Staff = () => {
                                 </Form.Item>
 
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
-                                    <Form.Item initialValue={staffData?.project} label={t('project')} name="project" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('project')} name="project" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select placeholder={t('projectPlaceholder')}>
                                             <Select.Option value="project 1">project 1</Select.Option>
                                             <Select.Option value="project 2">project 2</Select.Option>
                                         </Select>
                                     </Form.Item>
                                     <Form.Item label={t('du')} name="du" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <Select initialValue={staffData?.du} placeholder={t('duPlaceholder')}>
+                                        <Select placeholder={t('duPlaceholder')}>
                                             <Select.Option value="du 11">du 11</Select.Option>
                                             <Select.Option value="du 1">du 1</Select.Option>
                                         </Select>
@@ -145,13 +144,13 @@ const Staff = () => {
                                 </Form.Item>
 
                                 <Form.Item className="flex-row mb-0" wrapperCol={24}>
-                                    <Form.Item initialValue={staffData?.cmclead} label={t('cmclead')} name="cmclead" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('cmclead')} name="cmclead" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select placeholder={t('cmcleadPlaceholder')}>
                                             <Select.Option value="leader 1">leader 1</Select.Option>
                                             <Select.Option value="leader 2">leader 2</Select.Option>
                                         </Select>
                                     </Form.Item>
-                                    <Form.Item initialValue={staffData?.status} label={t('status')} name="status" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('status')} name="status" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
                                         <Select placeholder={t('statusPlaceholder')}>
                                             <Select.Option value="status 1">status 1</Select.Option>
                                             <Select.Option value="status 2">status 2</Select.Option>
@@ -233,10 +232,10 @@ const Staff = () => {
                                 title: t('actions'),
                                 key: 'actions',
                                 sorter: true,
-                                render: () => (
+                                render: (_, row) => (
                                     <Space size="middle">
-                                        <Button type="text" icon={<ZoomInOutlined />} onClick={(e) => hanldeClickView(e)}></Button>
-                                        <Button type="text" icon={<EditOutlined />} onClick={(e) => hanldeClickView(e)}></Button>
+                                        <Button type="text" icon={<ZoomInOutlined />} onClick={() => hanldeClickView(row)}></Button>
+                                        <Button type="text" icon={<EditOutlined />} onClick={() => hanldeClickView(row)}></Button>
                                         <Button type="text" icon={<DeleteOutlined />}></Button>
                                     </Space>
                                 ),

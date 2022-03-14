@@ -61,6 +61,10 @@
                 @media screen and (min-width: 1600px) {
                     width: 250px;
                     height: 40px;
+                    .ant-select-selector {
+                        height: 40px;
+                        align-items: center;
+                    }
                 }
                 input::placeholder,
                 .ant-select-selection-placeholder {
