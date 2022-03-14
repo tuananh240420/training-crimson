@@ -28,30 +28,51 @@ const DeviceType = () => {
                         <Button icon={<PlusOutlined />} onClick={() => setOpenCreateForm(true)}>
                             {t('create')}
                         </Button>
-                        <Modal title={t('createAppointment')} centered visible={openCreateForm} footer={null} width={526} onCancel={() => setOpenCreateForm(false)}>
+                        <Modal title={t('createDevice')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
                             <Form style={{ width: '100%' }} className="flex-col justify-center text-center" layout="vertical" onFinish={hanldeCreateForm} autoComplete="off">
-                                <Form.Item label={t('title')} name="title">
-                                    <Input placeholder={t('titlePlaceholder')} />
-                                </Form.Item>
-                                <Form.Item style={{ width: '100%' }} label={t('date')} name="date">
-                                    <DatePicker style={{ width: '100%' }} />
-                                </Form.Item>
                                 <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
-                                    <Form.Item label={t('from')} name="dateFrom" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                    <Form.Item label={t('deviceName')} name="deviceName" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('deviceNamePlaceholder')} />
+                                    </Form.Item>
+                                    <Form.Item label={t('deviceCode')} name="deviceCode" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('deviceCodePlaceholder')} />
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('deviceType')} name="deviceType" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('deviceTypePlaceholder')}>
+                                            <Select.Option value="device1">device 1</Select.Option>
+                                            <Select.Option value="device2">device 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('status')} name="status" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('statusPlaceholder')}>
+                                            <Select.Option value="status 1">status 1</Select.Option>
+                                            <Select.Option value="status 2">status 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('owner')} name="owner" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Select placeholder={t('ownerPlaceholder')}>
+                                            <Select.Option value="owner1=">owner 1</Select.Option>
+                                            <Select.Option value="owner2">owner 2</Select.Option>
+                                        </Select>
+                                    </Form.Item>
+                                    <Form.Item label={t('quantity')} name="quantity" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input placeholder={t('quantityPlaceholder')} />
+                                    </Form.Item>
+                                </Form.Item>
+
+                                <Form.Item className="flex-row mb-0" style={{ gap: '24px' }}>
+                                    <Form.Item label={t('date')} name="date" style={{ display: 'inline-block', width: 'calc(50% - 12px)', alignSelf: 'stretch' }}>
                                         <DatePicker style={{ width: '100%' }} />
                                     </Form.Item>
-                                    <Form.Item label={t('to')} name="dateTo" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
-                                        <DatePicker style={{ width: '100%' }} />
+                                    <Form.Item label={t('note')} name="note" style={{ display: 'inline-block', width: 'calc(50% - 12px)' }}>
+                                        <Input.TextArea style={{ width: '100%', resize: 'none' }} />
                                     </Form.Item>
-                                </Form.Item>
-                                <Form.Item name="selectRoom" label={t('room')} hasFeedback rules={[{ required: true, message: t('roomSelectMessage') }]}>
-                                    <Select placeholder={t('roomPlaceholder')}></Select>
-                                </Form.Item>
-                                <Form.Item style={{ width: '100%' }} label={t('member')}>
-                                    <Input.TextArea style={{ width: '100%' }} />
-                                </Form.Item>
-                                <Form.Item label={t('content')}>
-                                    <Input.TextArea />
                                 </Form.Item>
 
                                 <Form.Item className="btn-submit">

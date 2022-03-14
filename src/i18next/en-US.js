@@ -17,6 +17,7 @@ export const en = {
         // General
         addNew: 'Add New',
         search: 'Search',
+        mail: 'Mail',
 
         // Room page
         roomlist: 'List Room',
@@ -123,5 +124,29 @@ export const en = {
 
         duName: 'Du Name',
         manager: 'Manager',
+
+        createStaff: 'Create Staff',
+        male: 'Male',
+        female: 'Female',
+        umid: 'UMID',
+        umidPlaceholder: 'Enter your UMID',
+        employeeidPlaceholder: 'Enter your employee ID',
+        rolePlaceholder: 'Select role',
+        projectPlaceholder: 'Select project',
+        duPlaceholder: 'Select DU',
+        cmcleadPlaceholder: 'Select leader',
+        statusPlaceholder: 'Select status',
+
+        addNewAsset: 'Add New Asset',
+        deviceid: 'Device ID',
+        deviceidPlaceholder: 'Enter device ID',
+        deviceNamePlaceholder: 'Enter device name',
+        deviceTypePlaceholder: 'Select device type',
+        quantityPlaceholder: 'Enter quantity',
+        ownerPlaceholder: 'Enter owner name',
+
+        createDevice: 'Create Device',
+        deviceCode: 'Device code',
+        deviceCodePlaceholder: 'Enter device code',
     },
 };

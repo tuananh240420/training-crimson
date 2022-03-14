@@ -22,8 +22,8 @@ const Router = () => {
         {
             path: '/',
             // TODO: Set tạm để code
-            element: isAuth ? <Header /> : <Navigate to="/login" />,
-            // element: <Header />,
+            // element: isAuth ? <Header /> : <Navigate to="/login" />,
+            element: <Header />,
             children: [
                 { path: 'dashboard', element: <Dashboard /> },
                 { path: 'room', element: <Room /> },
