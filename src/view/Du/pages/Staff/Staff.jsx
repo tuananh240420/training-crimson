@@ -30,7 +30,7 @@ const Staff = () => {
 
     const handleOk = () => {
         // TODO: do something
-
+        console.log(forms.getFieldValue());
         setOpenConfirmModal(false);
         setOpenCreateForm(false);
     };
@@ -66,7 +66,15 @@ const Staff = () => {
                         <Button icon={<PlusOutlined />} onClick={hanldeOpenCreateStaffForm}>
                             {t('addNew')}
                         </Button>
-                        <Modal modal={modal} title={t('createStaff')} centered visible={openCreateForm} footer={null} width={1014} onCancel={() => setOpenCreateForm(false)}>
+                        <Modal
+                            modal={modal}
+                            title={Object.keys(forms.getFieldValue()).length === 0 ? t('createStaff') : t('viewAndUpdateStaff')}
+                            centered
+                            visible={openCreateForm}
+                            footer={null}
+                            width={1014}
+                            onCancel={() => setOpenCreateForm(false)}
+                        >
                             <Form
                                 style={{ width: '100%' }}
                                 form={forms}

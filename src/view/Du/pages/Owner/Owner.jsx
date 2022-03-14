@@ -7,9 +7,7 @@ import avatar from '../../../../assets/img/avatar.jpg';
 const Owner = () => {
     const { t } = useTranslation();
     const [openCreateForm, setOpenCreateForm] = useState(false);
-    const hanldeCreateForm = () => {
-        // TODO: do something
-    };
+
     return (
         <div className=" page owner">
             <div className="page-content">

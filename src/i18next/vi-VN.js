@@ -158,5 +158,6 @@ export const vi = {
         infomationDevice: 'Thông tin thiết bị',
         dateProvided: 'Ngày cấp',
         viewUserDetail: 'Hồ sơ người dùng',
+        viewAndUpdateStaff: 'Xem và sửa thông tin nhân viên',
     },
 };

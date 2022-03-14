@@ -160,5 +160,6 @@ export const en = {
         infomationDevice: 'Infomation Device',
         dateProvided: 'Date provided',
         viewUserDetail: 'View User Detail',
+        viewAndUpdateStaff: 'view and update staff',
     },
 };
