@@ -1,5 +1,5 @@
-import { useRoutes } from 'react-router-dom';
-// import { useAuthContext } from '../auth/AuthContext';
+import { Navigate, useRoutes } from 'react-router-dom';
+import { useAuthContext } from '../auth/AuthContext';
 import Login from '../view/Login/Login';
 import SignUp from '../view/SignUp/SignUp';
 import Dashboard from '../view/Dashboard/Dashboard';
@@ -9,9 +9,10 @@ import Report from '../view/Report/Report';
 import Du from '../view/Du/Du';
 import { Staff, Assets, DeliveryUnit, DeviceType, Owner, Project } from '../view/Du/pages';
 import Header from '../components/Header';
+import Error from '../view/Error/Error';
 
 const Router = () => {
-    // const { isAuth } = useAuthContext();
+    const { isAuth } = useAuthContext();
 
     return useRoutes([
         {
@@ -22,8 +23,8 @@ const Router = () => {
         {
             path: '/',
             // TODO: Set tạm để code
-            // element: isAuth ? <Header /> : <Navigate to="/login" />,
-            element: <Header />,
+            element: isAuth ? <Header /> : <Navigate to="/login" />,
+            // element: <Header />,
             children: [
                 { path: 'dashboard', element: <Dashboard /> },
                 { path: 'room', element: <Room /> },
@@ -46,6 +47,10 @@ const Router = () => {
         {
             path: '/signup',
             element: <SignUp />,
+        },
+        {
+            path: '/error',
+            element: <Error />,
         },
     ]);
 };

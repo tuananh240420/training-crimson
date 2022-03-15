@@ -22,6 +22,16 @@ const Header = () => {
         // TODO: do something
     };
 
+    const handleClick = (item) => {
+        console.log(location.pathname);
+        console.log(location.pathname.includes('error'));
+        if (location.pathname === '/error') {
+            navigate(`../${item.toLocaleLowerCase()}`);
+        } else {
+            navigate(item.toLocaleLowerCase());
+        }
+    };
+
     return (
         <>
             <div className="header">
@@ -34,7 +44,7 @@ const Header = () => {
                             className="header-btn"
                             size="large"
                             type={location.pathname.split('/').find((i) => i === `${item.toLocaleLowerCase()}`) && 'primary'}
-                            onClick={() => navigate(item.toLocaleLowerCase())}
+                            onClick={() => handleClick(item)}
                         >
                             {t(item)}
                         </Button>
