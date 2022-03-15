@@ -85,7 +85,7 @@ export const en = {
         // Du page
         staff: 'Staff',
         assets: 'Assets',
-        deviceType: 'DeviceType',
+        deviceType: 'Device Type',
         owner: 'Owner',
         project: 'Project',
         deliveryUnit: 'Delivery Unit',
